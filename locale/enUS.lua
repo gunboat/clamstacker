@@ -1,4 +1,5 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("ClamStacker", "enUS", true)
+local AL3 = LibStub("AceLocale-3.0")
+local L = AL3:NewLocale("ClamStacker", "enUS", true, true)
 if (not L) then return; end
 
 L["ORIENTATION_HORIZONTAL"] = "Horizontal"
