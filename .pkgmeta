@@ -7,6 +7,9 @@ externals:
     lib/AceBucket-3.0:
         url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceBucket-3.0
         tag: latest
+    lib/AceTimer-3.0:
+        url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceTimer-3.0
+        tag: latest
     lib/AceConsole-3.0:
         url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConsole-3.0
         tag: latest
