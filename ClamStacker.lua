@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.2"
+local version = "1.0.3"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -51,8 +51,6 @@ function ClamStacker:OnInitialize()
 
     ClamStacker.orientation = L["ORIENTATION_HORIZONTAL"]
 
-    self:RegisterBucketEvent("BAG_UPDATE", 0.5, "BAG_UPDATE");
-
     ClamStacker.db = LibStub("AceDB-3.0"):New("ClamStackerDB")
 
     LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject("ClamStacker", {
@@ -72,6 +70,7 @@ end
 
 function ClamStacker:OnEnable()
     self:Print("v"..version.." loaded")
+    self:RegisterBucketEvent("BAG_UPDATE", 0.5, "BAG_UPDATE");
 end
 
 function ClamStacker:BAG_UPDATE()
@@ -86,9 +85,11 @@ function ClamStacker:BAG_UPDATE()
             if itemLink then
                 local texture, itemCount, locked, quality, readable = GetContainerItemInfo(bag, slot)
                 local itemName, _, itemRarity = GetItemInfo(itemLink)
+                self:Debug("itemLink=["..itemLink.."]")
                 local itemString = select(3, string.find(itemLink, "^|c%x+|H(.+)|h%[.+%]"))
+                self:Debug("itemString=["..(itemString or "nil").."]")
                 local itemId = select(2, strsplit(":", itemString))
-                self:Debug("checking item:"..itemId..",name="..itemName)
+                self:Debug("checking item:"..(itemId or "nil")..",name="..(itemName or "nil"))
                 if clamItemIds[itemId] then
                     self:Debug(itemId.." is a clam")
                     if not itemlist[itemId] then
