@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.4"
+local version = "1.0.5"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -13,6 +13,7 @@ local clamItemIds = {
     ["5523"] = true,
     ["15874"] = true,
     ["5524"] = true,
+    ["45072"] = true,
 }
 
 local options = {
@@ -85,29 +86,28 @@ function ClamStacker:BAG_UPDATE()
             if itemLink then
                 local texture, itemCount, locked, quality, readable = GetContainerItemInfo(bag, slot)
                 local itemName, _, itemRarity = GetItemInfo(itemLink)
-                self:Debug("itemLink=["..itemLink.."]")
-                local itemString = select(3, string.find(itemLink, "^|c%x+|H(.+)|h%[.+%]"))
-                self:Debug("itemString=["..(itemString or "nil").."]")
-                local itemId = select(2, strsplit(":", itemString))
-                self:Debug("checking item:"..(itemId or "nil")..",name="..(itemName or "nil"))
-                if clamItemIds[itemId] then
-                    self:Debug(itemId.." is a clam")
-                    if not itemlist[itemId] then
-                        self:Debug("adding entry for "..itemId)
-                        numItems = numItems + 1
-                        itemlist[itemId] = {
-                            name = itemName,
-                            texture = texture,
-                            itemLink = itemLink,
-                            bag = bag,
-                            slot = slot,
-                            itemId = itemId,
-                            itemCount = 0,
-                        }
+                if itemName then
+                    local itemString = select(3, string.find(itemLink, "^|c%x+|H(.+)|h%[.+%]"))
+                    local itemId = select(2, strsplit(":", itemString))
+                    if clamItemIds[itemId] then
+                        self:Debug(itemId.." is a clam")
+                        if not itemlist[itemId] then
+                            self:Debug("adding entry for "..itemId)
+                            numItems = numItems + 1
+                            itemlist[itemId] = {
+                                name = itemName,
+                                texture = texture,
+                                itemLink = itemLink,
+                                bag = bag,
+                                slot = slot,
+                                itemId = itemId,
+                                itemCount = 0,
+                            }
+                        end
+                        itemlist[itemId].itemCount = itemlist[itemId].itemCount + tonumber(itemCount)
+                        self:Debug(itemlist[itemId].itemCount.." items in the stack")
+                        haveClams = true
                     end
-                    itemlist[itemId].itemCount = itemlist[itemId].itemCount + tonumber(itemCount)
-                    self:Debug(itemlist[itemId].itemCount.." items in the stack")
-                    haveClams = true
                 end
             end
         end
@@ -208,7 +208,7 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
         button:Show()
         button:SetScript("OnEnter", function(widget)
             GameTooltip:SetOwner(widget, "ANCHOR_RIGHT")
-            GameTooltip:SetBagItem(v.bag,v.slot)
+            GameTooltip:SetHyperlink(v.itemLink)
             GameTooltip:Show()
         end)
         button:SetScript("OnLeave", function(widget) GameTooltip:Hide() end)
