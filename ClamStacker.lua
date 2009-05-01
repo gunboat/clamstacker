@@ -37,6 +37,9 @@ local options = {
     },
 }
 
+local hiddenFrames = {}
+local visibleFrames = {}
+
 function ClamStacker:Debug(...)
     if debugFrame then
         debugFrame:AddMessage(string.join(", ", ...))
@@ -191,44 +194,70 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
         deltaY = 1
     end
 
+    -- Hide the frames we won't be using any longer
+    for k,v in pairs(visibleFrames) do
+        self:Debug("checking visibleFrame["..k.."]")
+        if not itemlist[k] then
+            self:Debug("don't need it")
+            v.cooldown:UnregisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
+            v:Hide()
+            table.insert(hiddenFrames, v)
+        end
+    end
+
     local X, Y = 0, 0
     for k,v in pairs(itemlist) do
-        self:Debug("adding item:"..v.itemId..", name="..v.name.." to frame")
-        local button = CreateFrame("Button", nil, f, "SecureActionButtonTemplate")
-        button:SetID(v.itemId)
-        button:SetAttribute("type1", "item")
-        button:SetAttribute("item1", "item:"..v.itemId)
-        button:SetWidth(buttonSize)
-        button:SetHeight(buttonSize)
-        button.cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
-        button.cooldown:SetID(v.itemId)
-        button.cooldown:SetPoint("CENTER", 0, -1)
-        button.cooldown:SetWidth(buttonSize)
-        button.cooldown:SetHeight(buttonSize)
-        button.cooldown:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
-        self:Debug("cooldown frame created")
-        local t = button:CreateTexture(nil, "BACKGROUND")
-        t:SetTexture(v.texture)
-        t:SetAllPoints(button)
-        button.texture = t
+        self:Debug("adding item:"..k..", name="..v.name.." to frame")
+        if not visibleFrames[v.itemId] then
+            local button
+            -- is there one in the hidden list we can reuse?
+            if #hiddenFrames == 0 then
+                self:Debug("creating new button frame")
+                button = CreateFrame("Button", nil, f, "SecureActionButtonTemplate")
+                button.cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
+                button.texture = button:CreateTexture(nil, "BACKGROUND")
+            else
+                self:Debug("recycling old button frame")
+                button = table.remove(hiddenFrames)
+            end
+
+            button:SetAttribute("type1", "item")
+            button:SetAttribute("item1", "item:"..v.itemId)
+            button:SetWidth(buttonSize)
+            button:SetHeight(buttonSize)
+            button:SetID(v.itemId)
+
+            button.cooldown:SetPoint("CENTER", 0, -1)
+            button.cooldown:SetWidth(buttonSize)
+            button.cooldown:SetHeight(buttonSize)
+            button.cooldown:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
+            button.cooldown:SetID(v.itemId)
+
+            button.texture:SetAllPoints(button)
+            button.texture:SetTexture(v.texture)
+
+            button:SetScript("OnEnter", function(widget)
+                GameTooltip:SetOwner(widget, "ANCHOR_RIGHT")
+                GameTooltip:SetHyperlink(v.itemLink)
+                GameTooltip:Show()
+            end)
+            button:SetScript("OnLeave", function(widget) GameTooltip:Hide() end)
+            button.cooldown:SetScript("OnEvent", function(widget)
+                self:Debug("cooldown OnEvent handler fired")
+                local start, duration, enabled = GetItemCooldown(widget:GetID())
+                if enabled then
+                    widget:Show()
+                    widget:SetCooldown(start, duration)
+                else
+                    widget:Hide()
+                end
+            end)
+
+            visibleFrames[k] = button
+        end
+
         button:SetPoint("TOPLEFT", 4+X, -12-Y)
         button:Show()
-        button:SetScript("OnEnter", function(widget)
-            GameTooltip:SetOwner(widget, "ANCHOR_RIGHT")
-            GameTooltip:SetHyperlink(v.itemLink)
-            GameTooltip:Show()
-        end)
-        button:SetScript("OnLeave", function(widget) GameTooltip:Hide() end)
-        button.cooldown:SetScript("OnEvent", function(widget)
-            self:Debug("cooldown OnEvent handler fired")
-            local start, duration, enabled = GetItemCooldown(widget:GetID())
-            if enabled then
-                widget:Show()
-                widget:SetCooldown(start, duration)
-            else
-                widget:Hide()
-            end
-        end)
 
         X = X + buttonSize * deltaX
         Y = Y + buttonSize * deltaY
