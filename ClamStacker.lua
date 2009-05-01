@@ -14,10 +14,6 @@ local clamItemIds = {
     ["15874"] = true,
     ["5524"] = true,
     ["45072"] = true,
-
-    ["7228"] = true,
-    ["2595"] = true,
-    ["10648"] = true,
 }
 
 local options = {
@@ -41,8 +37,7 @@ local options = {
     },
 }
 
-local hiddenFrames = {}
-local visibleFrames = {}
+ClamStacker.itemButtons = {}
 
 function ClamStacker:Debug(...)
     if debugFrame then
@@ -198,85 +193,68 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
         deltaY = 1
     end
 
+    self:Debug("numItems="..numItems..", #ClamStacker.itemButtons="..#ClamStacker.itemButtons)
+
     -- Hide the frames we won't be using any longer
-    for k,v in pairs(visibleFrames) do
-        self:Debug("checking visibleFrame["..k.."]")
-        if not itemlist[k] then
-            self:Debug("don't need it")
-            v.cooldown:UnregisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
-            v:Hide()
-            table.insert(hiddenFrames, v)
-        end
+    for i = numItems, #ClamStacker.itemButtons do
+        self:Debug("hiding button #"..i)
+        local w = ClamStacker.itemButtons[i]
+        w.cooldown:UnregisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
+        w:Hide()
     end
 
-    local X, Y = 0, 0
+    local i = 1
     for k,v in pairs(itemlist) do
         self:Debug("adding item:"..k..", name="..v.name.." to frame")
-        if not visibleFrames[v.itemId] then
-            local button
-            -- is there one in the hidden list we can reuse?
-            if #hiddenFrames == 0 then
-                self:Debug("creating new button frame")
-                button = CreateFrame("Button", nil, ClamStacker.popupFrame, "SecureActionButtonTemplate")
-                button:SetMovable(true)
-                button.cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
-                button.texture = button:CreateTexture(nil, "BACKGROUND")
-            else
-                self:Debug("recycling old button frame")
-                button = table.remove(hiddenFrames)
-            end
 
-            button:SetID(v.itemId)
-            button:SetAttribute("type1", "item")
-            button:SetAttribute("item1", "item:"..v.itemId)
-            button:SetWidth(buttonSize)
-            button:SetHeight(buttonSize)
+        local button = ClamStacker.itemButtons[i]
+        if not button then
+            self:Debug("creating button #"..i)
+            button = CreateFrame("Button", "ClamStackerItemButton_"..i, ClamStacker.popupFrame, "SecureActionButtonTemplate")
+            button:SetMovable(true)
+            button.cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
+            button.texture = button:CreateTexture(nil, "BACKGROUND")
 
-            button:ClearAllPoints()
-            button:SetPoint("TOPLEFT", ClamStacker.popupFrame, 4+X, -12-Y)
+            button:SetPoint("TOPLEFT", ClamStacker.popupFrame, 4+(i-1)*buttonSize*deltaX, -12-(i-1)*buttonSize*deltaY)
 
-            button.cooldown:SetID(v.itemId)
-            button.cooldown:SetAllPoints()
-            button.cooldown:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
-
-            button.texture:SetAllPoints()
-            button.texture:SetTexture(v.texture)
-
-            button:SetScript("OnEnter", function(widget)
-                GameTooltip:SetOwner(widget, "ANCHOR_RIGHT")
-                GameTooltip:SetHyperlink(v.itemLink)
-                GameTooltip:Show()
-            end)
-            button:SetScript("OnLeave", function(widget) GameTooltip:Hide() end)
-            button.cooldown:SetScript("OnEvent", function(widget)
-                self:Debug("cooldown OnEvent handler fired for item:"..widget:GetID())
-                local start, duration, enabled = GetItemCooldown(widget:GetID())
-                if enabled then
-                    widget:Show()
-                    widget:SetCooldown(start, duration)
-                else
-                    widget:Hide()
-                end
-            end)
-
-            visibleFrames[k] = button
+            ClamStacker.itemButtons[i] = button
         end
+        i = i+1
 
-        button:ClearAllPoints()
-        button:SetPoint("TOPLEFT", ClamStacker.popupFrame, 4+X, -12-Y)
+        button:SetID(v.itemId)
+        button:SetAttribute("type1", "item")
+        button:SetAttribute("item1", "item:"..v.itemId)
+        button:SetWidth(buttonSize)
+        button:SetHeight(buttonSize)
 
-        self:Debug("button "..button:GetID().." is at X="..(4+X)..",Y="..(-12-Y))
-        local point, relativeTo, relativePoint, xOfs, yOfs = button:GetPoint()
-        self:Debug("point="..point..",relativeTo="..relativeTo:GetName()..",relativePoint="..relativePoint..",xOfs="..xOfs..",yOfs="..yOfs)
+        button.cooldown:SetID(v.itemId)
+        button.cooldown:SetAllPoints()
+        button.cooldown:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
+
+        button.texture:SetAllPoints()
+        button.texture:SetTexture(v.texture)
+
+        button:SetScript("OnEnter", function(widget)
+            GameTooltip:SetOwner(widget, "ANCHOR_RIGHT")
+            GameTooltip:SetHyperlink(v.itemLink)
+            GameTooltip:Show()
+        end)
+        button:SetScript("OnLeave", function(widget) GameTooltip:Hide() end)
+        button.cooldown:SetScript("OnEvent", function(widget)
+            self:Debug("cooldown OnEvent handler fired for item:"..widget:GetID())
+            local start, duration, enabled = GetItemCooldown(widget:GetID())
+            if enabled then
+                widget:Show()
+                widget:SetCooldown(start, duration)
+            else
+                widget:Hide()
+            end
+        end)
 
         button:Show()
 
         self:Debug("button:IsShown()="..(button:IsShown() or "nil"))
         self:Debug("button:IsVisible()="..(button:IsVisible() or "nil"))
-
-        X = X + buttonSize * deltaX
-        Y = Y + buttonSize * deltaY
-
     end
 
 end
