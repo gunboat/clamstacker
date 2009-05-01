@@ -14,7 +14,6 @@ local clamItemIds = {
     ["15874"] = true,
     ["5524"] = true,
     ["45072"] = true,
-    ["44791"] = true,
 }
 
 local options = {
