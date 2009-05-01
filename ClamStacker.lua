@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.5"
+local version = "1.0.6"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -14,6 +14,7 @@ local clamItemIds = {
     ["15874"] = true,
     ["5524"] = true,
     ["45072"] = true,
+    ["44791"] = true,
 }
 
 local options = {
@@ -200,6 +201,13 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
         button:SetAttribute("item1", "item:"..v.itemId)
         button:SetWidth(buttonSize)
         button:SetHeight(buttonSize)
+        button.cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
+        button.cooldown:SetID(v.itemId)
+        button.cooldown:SetPoint("CENTER", 0, -1)
+        button.cooldown:SetWidth(buttonSize)
+        button.cooldown:SetHeight(buttonSize)
+        button.cooldown:RegisterEvent("ACTIONBAR_UPDATE_COOLDOWN")
+        self:Debug("cooldown frame created")
         local t = button:CreateTexture(nil, "BACKGROUND")
         t:SetTexture(v.texture)
         t:SetAllPoints(button)
@@ -212,6 +220,16 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
             GameTooltip:Show()
         end)
         button:SetScript("OnLeave", function(widget) GameTooltip:Hide() end)
+        button.cooldown:SetScript("OnEvent", function(widget)
+            self:Debug("cooldown OnEvent handler fired")
+            local start, duration, enabled = GetItemCooldown(widget:GetID())
+            if enabled then
+                widget:Show()
+                widget:SetCooldown(start, duration)
+            else
+                widget:Hide()
+            end
+        end)
 
         X = X + buttonSize * deltaX
         Y = Y + buttonSize * deltaY
