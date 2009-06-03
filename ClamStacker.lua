@@ -13,7 +13,24 @@ local clamItemIds = {
     ["5523"] = true,
     ["15874"] = true,
     ["5524"] = true,
+
+    -- Shattrath daily quest rewards
+    ["34863"] = true,
+    ["35348"] = true,
+    ["33844"] = true,
+    ["33857"] = true,
+
+    -- Dalaran daily quest rewards
+    ["46007"] = true,
+    ["44113"] = true,
+
+    -- Crates and other things that can be caught
+    ["27513"] = true,
+    ["44475"] = true,
+
+    -- Noblegarden eggs
     ["45072"] = true,
+
 }
 
 local options = {
