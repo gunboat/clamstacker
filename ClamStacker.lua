@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.7"
+local version = "1.0.8"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -27,6 +27,7 @@ local clamItemIds = {
     -- Crates and other things that can be caught
     ["27513"] = true,
     ["44475"] = true,
+    ["21150"] = true,
 
     -- Noblegarden eggs
     ["45072"] = true,
