@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.9"
+local version = "1.0.10"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -31,6 +31,9 @@ local clamItemIds = {
 
     -- Noblegarden eggs
     ["45072"] = true,
+
+    -- Champion's purse from the Argent Tournament
+    ["45724"] = true,
 
 }
 
@@ -73,15 +76,6 @@ function ClamStacker:OnInitialize()
     ClamStacker.orientation = L["ORIENTATION_HORIZONTAL"]
 
     ClamStacker.db = LibStub("AceDB-3.0"):New("ClamStackerDB")
-
-    LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject("ClamStacker", {
-        launcher = true,
-        icon = "Interface\\Icons\\INV_Misc_Bag_08",
-        text = "ClamStacker",
-        OnTooltipShow = function(tooltip)
-            tooltip:AddLine("ClamStacker |cff00ff00("..version..")|r");
-        end
-    })
 
     -- Configuration I18N
     ClamStacker.OrientationChoices = {}
@@ -276,4 +270,3 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
     end
 
 end
-
