@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.10"
+local version = "1.0.11"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -34,6 +34,10 @@ local clamItemIds = {
 
     -- Champion's purse from the Argent Tournament
     ["45724"] = true,
+
+    -- Hallow's End drops
+    ["37586"] = true,
+    ["34077"] = true,
 
 }
 
