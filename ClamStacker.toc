@@ -1,13 +1,13 @@
-## Interface: 30200
+## Interface: 30300
 ## Title: ClamStacker
 ## Notes: Deal with all those stupid clams that keep showing up in your bags
 ## Author: Mitchell Morris
 ## eMail: mitchell@morrisland.com
 ## URL: http://wow.curse.com/downloads/wow-addons/details/clamstacker.aspx
-## Version: 1.0.12
+## Version: 1.0.13
 ## SavedVariables: ClamStackerDB
 ## OptionalDeps: Ace3, tekDebug
-## X-Embeds: AceAddon-3.0, AceConsole-3.0, AceTimer-3.0, AceDB-3.0, AceEvent-3.0, AceLocale-3.0, CallbackHandler-1.0, ItemPrice-1.1, LibStub, LibDataBroker-1.1
+## X-Embeds: AceAddon-3.0, AceConsole-3.0, AceTimer-3.0, AceDB-3.0, AceEvent-3.0, AceLocale-3.0, CallbackHandler-1.0, LibStub, LibDataBroker-1.1
 ## X-Category: Inventory
 
 ClamStacker.xml
