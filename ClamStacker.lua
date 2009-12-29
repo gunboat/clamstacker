@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.13"
+local version = "1.0.14"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -39,6 +39,17 @@ local clamItemIds = {
     ["37586"] = true,
     ["34077"] = true,
     ["20393"] = true,
+
+    -- Winter Veil drops
+    ["21191"] = true,
+    ["21270"] = true,
+    ["21271"] = true,
+    ["21310"] = true,
+    ["21327"] = true,
+    ["21363"] = true,
+    ["34426"] = true,
+    ["43504"] = true,
+    ["46740"] = true,
 
 }
 
