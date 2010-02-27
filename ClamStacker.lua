@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.14"
+local version = "1.0.15"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -50,6 +50,9 @@ local clamItemIds = {
     ["34426"] = true,
     ["43504"] = true,
     ["46740"] = true,
+
+    -- Lucky Red Envelope
+    ["21746"] = true,
 
 }
 

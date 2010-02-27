@@ -4,14 +4,8 @@
 ## Author: Mitchell Morris
 ## eMail: mitchell@morrisland.com
 ## URL: http://wow.curse.com/downloads/wow-addons/details/clamstacker.aspx
-## Version: 1.0.14
+## Version: 1.0.15
 ## SavedVariables: ClamStackerDB
 ## OptionalDeps: Ace3, tekDebug
-## X-Embeds: AceAddon-3.0, AceConsole-3.0, AceTimer-3.0, AceDB-3.0, AceEvent-3.0, AceLocale-3.0, CallbackHandler-1.0, LibStub, LibDataBroker-1.1
-## X-Category: Inventory
-## X-Curse-Packaged-Version: v1.0.13
-## X-Curse-Project-Name: ClamStacker
-## X-Curse-Project-ID: clamstacker
-## X-Curse-Repository-ID: wow/clamstacker/mainline
 
 ClamStacker.xml
