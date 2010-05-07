@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.16"
+local version = "1.0.17"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -56,6 +56,9 @@ local clamItemIds = {
 
     -- Cache of the Ley-Guardian from Oculus
     ["52676"] = true,
+
+    -- Sack of frosty treasures
+    ["52006"] = true,
 
 }
 
