@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.0.19"
+local version = "1.1.2"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -30,6 +30,7 @@ local clamItemIds = {
     ["21150"] = true,
     ["35313"] = true,
     ["45328"] = true,
+    ["27511"] = true,
 
     -- Noblegarden eggs
     ["45072"] = true,
@@ -118,6 +119,11 @@ function ClamStacker:OnEnable()
     self:RegisterBucketEvent("BAG_UPDATE", 0.5, "BAG_UPDATE");
 end
 
+local function PLAYER_REGEN_ENABLED(self)
+    self:UnregisterEvent("PLAYER_REGEN_ENABLED")
+    self:Show()
+end
+
 function ClamStacker:BAG_UPDATE()
     self:Debug("BAG_UPDATE called")
 
@@ -170,7 +176,11 @@ function ClamStacker:BAG_UPDATE()
     -- and show it
     table.sort(itemlist, function(a,b) return a.itemId < b.itemId end)
     self:CreatePopupFrame(numItems, itemlist)
-    ClamStacker.popupFrame:Show()
+    if InCombatLockdown() then
+        ClamStacker.popupFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
+    else
+        PLAYER_REGEN_ENABLED(ClamStacker.popupFrame)
+    end
 end
 
 function ClamStacker:CreatePopupFrame(numItems, itemlist)
@@ -208,6 +218,7 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
             ClamStacker.db.char.xOfs = xOfs
             ClamStacker.db.char.yOfs = yOfs
         end)
+        f:SetScript("OnEvent", PLAYER_REGEN_ENABLED)
 
         f:SetBackdrop{
           bgFile = 'Interface/Tooltips/UI-Tooltip-Background',
