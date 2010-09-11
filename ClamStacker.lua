@@ -31,6 +31,7 @@ local clamItemIds = {
     ["35313"] = true,
     ["45328"] = true,
     ["27511"] = true,
+    ["8484"] = true,
 
     -- Noblegarden eggs
     ["45072"] = true,
