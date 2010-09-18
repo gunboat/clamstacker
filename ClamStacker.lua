@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.1.5"
+local version = "1.1.6"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -70,6 +70,15 @@ local clamItemIds = {
 
     -- Satchel of chilled goods, from Ahune
     ["54536"] = true,
+
+    -- Satchel of helpful goods, from LFD before Northrend
+    ["51999"] = true,
+    ["52000"] = true,
+    ["52001"] = true,
+    ["52002"] = true,
+    ["52003"] = true,
+    ["52004"] = true,
+    ["52005"] = true,
 
 }
 
