@@ -1,106 +1,100 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.1.6"
+local version = "1.1.7"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
-local clamItemIds = {
-    ["7973"] = true,
-    ["44700"] = true,
-    ["36781"] = true,
-    ["45909"] = true,
-    ["24476"] = true,
-    ["5523"] = true,
-    ["15874"] = true,
-    ["5524"] = true,
+local function Set(list)
+    local set = {}
+    for _, l in ipairs(list) do set[tostring(l)] = true end
+    return set
+end
 
-    -- Shattrath daily quest rewards
-    ["34863"] = true,
-    ["35348"] = true,
-    ["33844"] = true,
-    ["33857"] = true,
-
-    -- Dalaran daily quest rewards
-    ["46007"] = true,
-    ["44113"] = true,
-
-    -- Crates and other things that can be caught
-    ["27513"] = true,
-    ["44475"] = true,
-    ["21150"] = true,
-    ["35313"] = true,
-    ["45328"] = true,
-    ["27511"] = true,
-
-    -- Quest rewards and other openable things
-    ["8484"] = true,
-    ["9276"] = true,
-    ["15699"] = true,
-
-    -- Noblegarden eggs
-    ["45072"] = true,
-
-    -- Champion's purse from the Argent Tournament
-    ["45724"] = true,
-
-    -- Hallow's End drops
-    ["37586"] = true,
-    ["34077"] = true,
-    ["20393"] = true,
-
-    -- Winter Veil drops
-    ["21191"] = true,
-    ["21270"] = true,
-    ["21271"] = true,
-    ["21310"] = true,
-    ["21327"] = true,
-    ["21363"] = true,
-    ["34426"] = true,
-    ["43504"] = true,
-    ["46740"] = true,
-
-    -- Lucky Red Envelope
-    ["21746"] = true,
-
-    -- Cache of the Ley-Guardian from Oculus
-    ["52676"] = true,
-
-    -- Sack of frosty treasures
-    ["52006"] = true,
-
-    -- Satchel of chilled goods, from Ahune
-    ["54536"] = true,
-
-    -- Satchel of helpful goods, from LFD before Northrend
-    ["51999"] = true,
-    ["52000"] = true,
-    ["52001"] = true,
-    ["52002"] = true,
-    ["52003"] = true,
-    ["52004"] = true,
-    ["52005"] = true,
-
+local clamItemIds = Set {
+    5523,
+    5524,
+    7973,
+    8484,
+    9276,
+    15699,
+    15874,
+    20393,
+    21150,
+    21191,
+    21270,
+    21271,
+    21310,
+    21327,
+    21363,
+    21746,
+    24476,
+    25423,
+    27481,
+    27511,
+    27513,
+    33844,
+    33857,
+    34077,
+    34426,
+    34863,
+    35313,
+    35348,
+    36781,
+    37586,
+    43504,
+    44113,
+    44475,
+    44700,
+    44751,
+    45072,
+    45328,
+    45724,
+    45909,
+    46007,
+    46740,
+    51999,
+    52000,
+    52001,
+    52002,
+    52003,
+    52004,
+    52005,
+    52006,
+    52676,
+    54536,
 }
+
+-- This will be filled in once we have I18N loaded
+ClamStacker.OrientationChoices = {}
 
 local options = {
     type = 'group',
+    name = "ClamStacker",
+    handler = ClamStacker,
+    desc = "Manage clams and other things that can be opened",
     args = {
-        enable = {
-            name = "Enable",
-            desc = "Enables / disables clam stacking",
-            type = "toggle",
-            set = function(info, val) ClamStacker.enabled = val end,
-            get = function(info) return ClamStacker.enabled end
-        },
         orientation = {
             name = "Orientation",
             desc = "Orientation of the popup window",
             type = "select",
             values = ClamStacker.OrientationChoices,
-            set = function(info, val) ClamStacker.orientation = val end,
-            get = function(info) return ClamStacker.orientation end
+            set = function(info, val) ClamStacker.db.profile.orientation = val; ClamStacker:BAG_UPDATE() end,
+            get = function(info) return ClamStacker.db.profile.orientation end
         },
     },
+}
+
+local defaults = {
+    profile = {
+        orientation = 1,
+    }
+}
+
+local profileOptions = {
+    name = "Profiles",
+    type = "group",
+    childGroups = "tab",
+    args = {},
 }
 
 ClamStacker.itemButtons = {}
@@ -112,20 +106,29 @@ function ClamStacker:Debug(...)
 end
 
 function ClamStacker:OnInitialize()
-    options.args.enable.name = L["OPTIONS_ENABLE_NAME"]
-    options.args.enable.desc = L["OPTIONS_ENABLE_DESC"]
     options.args.orientation.name = L["OPTIONS_ORIENTATION_NAME"]
     options.args.orientation.desc = L["OPTIONS_ORIENTATION_DESC"]
-    LibStub("AceConfig-3.0"):RegisterOptionsTable("ClamStacker", options)
 
     ClamStacker.orientation = L["ORIENTATION_HORIZONTAL"]
+    defaults.profile.orientation = L["ORIENTATION_HORIZONTAL"]
 
-    ClamStacker.db = LibStub("AceDB-3.0"):New("ClamStackerDB")
+    ClamStacker.db = LibStub("AceDB-3.0"):New("ClamStackerDB", defaults, "Default")
+
+    LibStub("AceConfig-3.0"):RegisterOptionsTable("ClamStacker", options)
+
+    ClamStacker.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("ClamStacker", "ClamStacker")
+
+    self:RegisterChatCommand("clamstacker", "ChatCommand")
+
+
 
     -- Configuration I18N
-    ClamStacker.OrientationChoices = {}
     tinsert(ClamStacker.OrientationChoices, L["ORIENTATION_VERTICAL"])
     tinsert(ClamStacker.OrientationChoices, L["ORIENTATION_HORIZONTAL"])
+end
+
+function ClamStacker:ChatCommand(input)
+    InterfaceOptionsFrame_OpenToCategory(ClamStacker.optionsFrame)
 end
 
 function ClamStacker:OnEnable()
@@ -245,19 +248,19 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
     local f = ClamStacker.popupFrame
 
     local deltaX, deltaY
-    self:Debug("orientation="..ClamStacker.orientation)
-    if ClamStacker.orientation == L["ORIENTATION_HORIZONTAL"] then
-        self:Debug("setting width,height="..buttonSize*numItems..","..buttonSize)
-        f:SetWidth(8 + buttonSize * numItems)
-        f:SetHeight(16 + buttonSize)
-        deltaX = 1
-        deltaY = 0
-    else
+    self:Debug("orientation="..ClamStacker.db.profile.orientation)
+    if ClamStacker.db.profile.orientation == 1 then
         self:Debug("setting width,height="..buttonSize..","..buttonSize*numItems)
         f:SetWidth(8 + buttonSize)
         f:SetHeight(16 + buttonSize * numItems)
         deltaX = 0
         deltaY = 1
+    else
+        self:Debug("setting width,height="..buttonSize*numItems..","..buttonSize)
+        f:SetWidth(8 + buttonSize * numItems)
+        f:SetHeight(16 + buttonSize)
+        deltaX = 1
+        deltaY = 0
     end
 
     self:Debug("numItems="..numItems..", #ClamStacker.itemButtons="..#ClamStacker.itemButtons)
@@ -282,17 +285,16 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
             button.cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
             button.texture = button:CreateTexture(nil, "BACKGROUND")
 
-            button:SetPoint("TOPLEFT", ClamStacker.popupFrame, 4+(i-1)*buttonSize*deltaX, -12-(i-1)*buttonSize*deltaY)
 
             ClamStacker.itemButtons[i] = button
         end
-        i = i+1
 
         button:SetID(v.itemId)
         button:SetAttribute("type1", "item")
         button:SetAttribute("item1", "item:"..v.itemId)
         button:SetWidth(buttonSize)
         button:SetHeight(buttonSize)
+        button:SetPoint("TOPLEFT", ClamStacker.popupFrame, 4+(i-1)*buttonSize*deltaX, -12-(i-1)*buttonSize*deltaY)
 
         button.cooldown:SetID(v.itemId)
         button.cooldown:SetAllPoints()
@@ -322,6 +324,8 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
 
         self:Debug("button:IsShown()="..(button:IsShown() or "nil"))
         self:Debug("button:IsVisible()="..(button:IsVisible() or "nil"))
+
+        i = i+1
     end
 
 end
