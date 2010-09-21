@@ -13,6 +13,9 @@ externals:
     lib/AceConfig-3.0:
         url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConfig-3.0
         tag: latest
+    lib/AceConfigDialog-3.0:
+        url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceConfigDialog-3.0
+        tag: latest
     lib/AceAddon-3.0:
         url: svn://svn.wowace.com/wow/ace3/mainline/trunk/AceAddon-3.0
         tag: latest
