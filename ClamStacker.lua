@@ -143,6 +143,7 @@ end
 
 local function PLAYER_REGEN_ENABLED(self)
     self:UnregisterEvent("PLAYER_REGEN_ENABLED")
+    ClamStacker:PopulatePopupFrame(self.dataModel[1], self.dataModel[2])
     self:Show()
 end
 
@@ -197,7 +198,10 @@ function ClamStacker:BAG_UPDATE()
     -- Okay ... so we have some clams. Populate our window with them
     -- and show it
     table.sort(itemlist, function(a,b) return a.itemId < b.itemId end)
-    self:CreatePopupFrame(numItems, itemlist)
+
+    self:CreatePopupFrame()
+    ClamStacker.popupFrame.dataModel = { numItems, itemlist }
+
     if InCombatLockdown() then
         ClamStacker.popupFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
     else
@@ -205,9 +209,7 @@ function ClamStacker:BAG_UPDATE()
     end
 end
 
-function ClamStacker:CreatePopupFrame(numItems, itemlist)
-    local buttonSize = 48
-
+function ClamStacker:CreatePopupFrame()
     if not ClamStacker.popupFrame then
         ClamStacker.popupFrame = CreateFrame("Frame", "ClamStackerPopupFrame", UIParent)
         local f = ClamStacker.popupFrame
@@ -250,7 +252,11 @@ function ClamStacker:CreatePopupFrame(numItems, itemlist)
           insets = {left = 4, right = 4, top = 4, bottom = 4}
         }
     end
+end
+
+function ClamStacker:PopulatePopupFrame(numItems, itemlist)
     local f = ClamStacker.popupFrame
+    local buttonSize = 48
 
     local deltaX, deltaY
     self:Debug("orientation="..ClamStacker.db.profile.orientation)
