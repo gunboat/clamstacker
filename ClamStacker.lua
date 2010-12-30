@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.2.8"
+local version = "1.2.9"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -77,6 +77,7 @@ local clamItemIds = Set {
     54535,
     54536,
     67414,
+    67443,
 }
 
 -- This will be filled in once we have I18N loaded
