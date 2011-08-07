@@ -85,6 +85,7 @@ local clamItemIds = Set {
     67495,
     69886,
     69903,
+    71631,
 }
 
 -- This will be filled in once we have I18N loaded
