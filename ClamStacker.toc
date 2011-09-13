@@ -4,7 +4,7 @@
 ## Author: gunboat
 ## eMail: gunboat.smith.2010@gmail.com
 ## URL: http://wow.curse.com/downloads/wow-addons/details/clamstacker.aspx
-## Version: 1.2.18
+## Version: 1.2.19
 ## SavedVariables: ClamStackerDB
 ## OptionalDeps: Ace3, tekDebug
 
