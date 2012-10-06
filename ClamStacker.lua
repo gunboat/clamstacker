@@ -490,6 +490,7 @@ local clamItemIds = Set {
 88458, --QA Test 10k G Box
 88496, -- Sealed Crate MoP
 88567, --Ghost Iron Lockbox
+89125, --Sack of Pet Supplies
 89427, --Ancient Mogu Treasure
 89428, --Ancient Mogu Treasure
 89607, --Crate of Leather
