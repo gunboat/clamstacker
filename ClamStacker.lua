@@ -552,6 +552,7 @@ local clamItemIds = Set {
 90818, --Misty Satchel of Exotic Mysteries
 90839, --Cache of Sha-Touched Gold
 90840, --Marauder's Gleaming Sack of Gold
+92960, --Silkwoom Cocoon
 }
 
 -- This will be filled in once we have I18N loaded
