@@ -496,6 +496,7 @@ local clamItemIds = Set {
 89607, --Crate of Leather
 89608, --Crate of Ore
 89609, --Crate of Dust
+89613, --Greater Cache of Treasures
 89610, --Pandaria Herbs
 89804, --Cache of Mogu Riches
 89807, --Amber Encased Treasure Pouch
@@ -552,6 +553,7 @@ local clamItemIds = Set {
 90818, --Misty Satchel of Exotic Mysteries
 90839, --Cache of Sha-Touched Gold
 90840, --Marauder's Gleaming Sack of Gold
+92813, --Greater Cache of Treasures
 92960, --Silkwoom Cocoon
 }
 
