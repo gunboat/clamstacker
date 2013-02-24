@@ -621,9 +621,10 @@ function ClamStacker:OnInitialize()
     tinsert(ClamStacker.OrientationChoices, L["ORIENTATION_HORIZONTAL"])
 end
 
-function ClamStacker:ChatCommand(msg, editbox)
-    if (msg) then
-	self:Print(gsub(msg, "\124", "\124\124"));
+function ClamStacker:ChatCommand(...)
+    local args = { n = select("#", ...), ... }
+    if args.n ~= 1 and args[1] ~= "" then
+	self:Print(gsub(args[1], "\124", "\124\124"));
 	return
     end
 
