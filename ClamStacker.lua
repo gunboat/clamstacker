@@ -532,6 +532,7 @@ local clamItemIds = Set {
 90401, --Facets of Research
 90406, -- Secrets of the Stone Facets of Research
 90406, --Facets of Research
+90537, --Winner's Reward
 90621, --Hero's Purse
 90622, -- Hero's Purse
 90622, --Hero's Purse
