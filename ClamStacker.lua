@@ -485,6 +485,31 @@ local clamItemIds = Set {
 87539, --Crate of Tol'vir Archaeology Fragments
 87540, --Crate of Troll Archaeology Fragments
 87541, --Crate of Vrykul Archaeology Fragments
+87701, --Sack of Raw Tiger Steaks
+87702, --Sack of Mushan Ribs
+87703, --Sack of Raw Turtle Meat
+87704, --Sack of Raw Crab Meat
+87705, --Sack of Wildfowl Breasts
+87706, --Sack of Green Cabbages
+87707, --Sack of Juicycrunch Carrots
+87708, --Sack of Mogu Pumpkin
+87709, --Sack of Scallions
+87710, --Sack of Red Blossom Leeks
+87712, --Sack of Witchberries
+87713, --Sack of Jade Squash
+87714, --Sack of Striped Melons
+87715, --Sack of Pink Turnips
+87716, --Sack of White Turnips
+87721, --Sack of Jade Lungfish
+87722, --Sack of Giant Mantis Shrimp
+87723, --Sack of Emperor Salmon
+87724, --Sack of Redbelly Mandarin
+87725, --Sack of Tiger Gourami
+87726, --Sack of Jewel Danio
+87727, --Sack of Reef Octopus
+87728, --Sack of Krasarang Paddlefish
+87729, --Sack of Golden Carp
+87730, --Sack of Crocolisk Belly
 88165, --Vine-Cracked Junkbox
 88457, --QA Test 1000g Box
 88458, --QA Test 10k G Box
