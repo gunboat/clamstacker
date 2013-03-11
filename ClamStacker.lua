@@ -581,6 +581,8 @@ local clamItemIds = Set {
 90840, --Marauder's Gleaming Sack of Gold
 92813, --Greater Cache of Treasures
 92960, --Silkwoom Cocoon
+93724, --Darkmoon Game Prize
+94219, --Arcane Trove
 }
 
 -- This will be filled in once we have I18N loaded
