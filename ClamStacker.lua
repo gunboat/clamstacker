@@ -583,6 +583,8 @@ local clamItemIds = Set {
 92960, --Silkwoom Cocoon
 93724, --Darkmoon Game Prize
 94219, --Arcane Trove
+94220, --Sunreaver Bounty
+95618, --Cache of Mogu Riches
 }
 
 -- This will be filled in once we have I18N loaded
