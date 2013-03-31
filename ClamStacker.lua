@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.3.6"
+local version = "1.3.7"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -585,6 +585,7 @@ local clamItemIds = Set {
 94219, --Arcane Trove
 94220, --Sunreaver Bounty
 95618, --Cache of Mogu Riches
+95619, --Amber Encased Treasure Pouch
 }
 
 -- This will be filled in once we have I18N loaded
