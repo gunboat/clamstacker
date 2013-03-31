@@ -584,6 +584,7 @@ local clamItemIds = Set {
 93724, --Darkmoon Game Prize
 94219, --Arcane Trove
 94220, --Sunreaver Bounty
+95617, --Dividends of the Everlasting Spring
 95618, --Cache of Mogu Riches
 95619, --Amber Encased Treasure Pouch
 }
@@ -654,7 +655,8 @@ end
 function ClamStacker:ChatCommand(...)
     local args = { n = select("#", ...), ... }
     if args.n ~= 1 and args[1] ~= "" then
-	self:Print(gsub(args[1], "\124", "\124\124"));
+	local _, _, id = string.find(args[1], "item:(%d+):")
+	self:Print(string.format("item ID = %d", id))
 	return
     end
 
