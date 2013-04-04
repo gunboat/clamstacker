@@ -588,6 +588,7 @@ local clamItemIds = Set {
 95617, --Dividends of the Everlasting Spring
 95618, --Cache of Mogu Riches
 95619, --Amber Encased Treasure Pouch
+97268, --Tome of Valor
 }
 
 -- This will be filled in once we have I18N loaded
