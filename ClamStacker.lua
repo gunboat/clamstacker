@@ -579,17 +579,25 @@ local clamItemIds = Set {
 90818, --Misty Satchel of Exotic Mysteries
 90839, --Cache of Sha-Touched Gold
 90840, --Marauder's Gleaming Sack of Gold
+91086, --Darkmoon Pet Supplies
 92813, --Greater Cache of Treasures
+93146, --Pandaren Spirit Pet Supplies
+93147, --Pandaren Spirit Pet Supplies
+93148, --Pandaren Spirit Pet Supplies
+93149, --Pandaren Spirit Pet Supplies
 92960, --Silkwoom Cocoon
 93724, --Darkmoon Game Prize
+94207, --Fabled Pandaren Pet Supplies
 94219, --Arcane Trove
 94220, --Sunreaver Bounty
 94566, --Foruitous Coffer
 95343, --Treasures of the Thunder King
+95601, --Shiny Pile of Refuse
 95617, --Dividends of the Everlasting Spring
 95618, --Cache of Mogu Riches
 95619, --Amber Encased Treasure Pouch
 97268, --Tome of Valor
+98095, --Brawler's Pet Supplies
 }
 
 -- This will be filled in once we have I18N loaded
