@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.3.11"
+local version = "1.3.12"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -590,6 +590,7 @@ local clamItemIds = Set {
 94207, --Fabled Pandaren Pet Supplies
 94219, --Arcane Trove
 94220, --Sunreaver Bounty
+94553, --Notes on Lightning Steel
 94566, --Foruitous Coffer
 95343, --Treasures of the Thunder King
 95601, --Shiny Pile of Refuse
