@@ -597,6 +597,7 @@ local clamItemIds = Set {
 95617, --Dividends of the Everlasting Spring
 95618, --Cache of Mogu Riches
 95619, --Amber Encased Treasure Pouch
+97153, --Spoils of the Thunder King
 97268, --Tome of Valor
 98095, --Brawler's Pet Supplies
 }
