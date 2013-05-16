@@ -594,6 +594,7 @@ local clamItemIds = Set {
 94566, --Foruitous Coffer
 95343, --Treasures of the Thunder King
 95601, --Shiny Pile of Refuse
+95602, --Stormtouched Cache
 95617, --Dividends of the Everlasting Spring
 95618, --Cache of Mogu Riches
 95619, --Amber Encased Treasure Pouch
