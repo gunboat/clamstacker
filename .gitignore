@@ -1,2 +1,4 @@
+*.ps1
 build.xml
 .idea
+*~
