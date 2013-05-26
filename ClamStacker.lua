@@ -601,9 +601,10 @@ local clamItemIds = Set {
 97153, --Spoils of the Thunder King
 97268, --Tome of Valor
 97957, --Surplus Supplies
+98095, --Brawler's Pet Supplies
 98133, -- Greater Cache of Treasures
 98134, --Bulging Cache of Treasures
-98095, --Brawler's Pet Supplies
+98546, --Bulging Heroic Cache of Treasures
 }
 
 -- This will be filled in once we have I18N loaded
