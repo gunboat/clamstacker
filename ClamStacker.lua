@@ -603,7 +603,7 @@ local clamItemIds = Set {
 97957, --Surplus Supplies
 98095, --Brawler's Pet Supplies
 98133, -- Greater Cache of Treasures
-98134, --Bulging Cache of Treasures
+98134, --Heroic Cache of Treasures
 98546, --Bulging Heroic Cache of Treasures
 }
 
