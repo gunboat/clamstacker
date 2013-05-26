@@ -602,6 +602,7 @@ local clamItemIds = Set {
 97268, --Tome of Valor
 97957, --Surplus Supplies
 98133, -- Greater Cache of Treasures
+98134, --Bulging Cache of Treasures
 98095, --Brawler's Pet Supplies
 }
 
