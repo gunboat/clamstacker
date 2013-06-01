@@ -600,7 +600,15 @@ local clamItemIds = Set {
 95619, --Amber Encased Treasure Pouch
 97153, --Spoils of the Thunder King
 97268, --Tome of Valor
+97948, --Surplus Supplies
+97949, --Surplus Supplies
+97950, --Surplus Supplies
+97951, --Surplus Supplies
+97952, --Surplus Supplies
+97953, --Surplus Supplies
 97954, --Surplus Supplies
+97955, --Surplus Supplies
+97956, --Surplus Supplies
 97957, --Surplus Supplies
 98095, --Brawler's Pet Supplies
 98133, -- Greater Cache of Treasures
