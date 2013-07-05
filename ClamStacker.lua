@@ -587,6 +587,7 @@ local clamItemIds = Set {
 93149, --Pandaren Spirit Pet Supplies
 92960, --Silkwoom Cocoon
 93724, --Darkmoon Game Prize
+94158, --Big Bag of Zandalari Supplies
 94207, --Fabled Pandaren Pet Supplies
 94219, --Arcane Trove
 94220, --Sunreaver Bounty
