@@ -595,6 +595,7 @@ local clamItemIds = Set {
 94553, --Notes on Lightning Steel
 94566, --Foruitous Coffer
 95343, --Treasures of the Thunder King
+95469, --Serpent's Heart
 95601, --Shiny Pile of Refuse
 95602, --Stormtouched Cache
 95617, --Dividends of the Everlasting Spring
