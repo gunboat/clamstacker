@@ -1,10 +1,10 @@
-## Interface: 50300
+## Interface: 50400
 ## Title: ClamStacker
 ## Notes: Deal with all those stupid clams that keep showing up in your bags
 ## Author: gunboat
 ## eMail: gunboat.smith.2010@gmail.com
 ## URL: http://wow.curse.com/downloads/wow-addons/details/clamstacker.aspx
-## Version: 1.4.4
+## Version: 1.4.5
 ## SavedVariables: ClamStackerDB
 ## OptionalDeps: Ace3, tekDebug
 
