@@ -619,6 +619,7 @@ local clamItemIds = Set {
 98134, --Heroic Cache of Treasures
 98546, --Bulging Heroic Cache of Treasures
 104272, --Celestial Treasure Box
+104292, --Partially-digested Meal
 }
 
 -- This will be filled in once we have I18N loaded
