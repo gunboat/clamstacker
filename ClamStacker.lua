@@ -618,6 +618,7 @@ local clamItemIds = Set {
 98133, -- Greater Cache of Treasures
 98134, --Heroic Cache of Treasures
 98546, --Bulging Heroic Cache of Treasures
+104260, --Satchel of Cosmic Mysteries
 104272, --Celestial Treasure Box
 104292, --Partially-digested Meal
 105713, --Twisted Treasures of the Vale
