@@ -621,6 +621,8 @@ local clamItemIds = Set {
 104035, --Giant Purse of Timeless Coins
 104260, --Satchel of Cosmic Mysteries
 104272, --Celestial Treasure Box
+104273, --Flame-scarred Cache of Offerings
+104275, --Twisted Treasures of the Vale
 104292, --Partially-digested Meal
 105713, --Twisted Treasures of the Vale
 }
