@@ -618,6 +618,7 @@ local clamItemIds = Set {
 98133, -- Greater Cache of Treasures
 98134, --Heroic Cache of Treasures
 98546, --Bulging Heroic Cache of Treasures
+103624, --Treasures of the Vale
 104035, --Giant Purse of Timeless Coins
 104260, --Satchel of Cosmic Mysteries
 104272, --Celestial Treasure Box
