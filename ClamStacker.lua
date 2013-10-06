@@ -587,7 +587,13 @@ local clamItemIds = Set {
 93149, --Pandaren Spirit Pet Supplies
 92960, --Silkwoom Cocoon
 92718, --Brawler's Purse
+92788, --Ride Ticket Book
+92789, --Ride Ticket Book
+92790, --Ride Ticket Book
+92791, --Ride Ticket Book
+92792, --Ride Ticket Book
 92793, --Ride Ticket Book
+92794, --Ride Ticket Book
 93724, --Darkmoon Game Prize
 94158, --Big Bag of Zandalari Supplies
 94207, --Fabled Pandaren Pet Supplies
