@@ -632,6 +632,7 @@ local clamItemIds = Set {
 104273, --Flame-scarred Cache of Offerings
 104275, --Twisted Treasures of the Vale
 104292, --Partially-digested Meal
+104296, --Ordon Ceremonial Robes
 105713, --Twisted Treasures of the Vale
 105714, --Coalesced Turmoil
 }
