@@ -596,6 +596,7 @@ local clamItemIds = Set {
 92794, --Ride Ticket Book
 93724, --Darkmoon Game Prize
 94158, --Big Bag of Zandalari Supplies
+94159, --Small Bag of Zandalari Supplies
 94207, --Fabled Pandaren Pet Supplies
 94219, --Arcane Trove
 94220, --Sunreaver Bounty
