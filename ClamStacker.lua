@@ -628,6 +628,7 @@ local clamItemIds = Set {
 103624, --Treasures of the Vale
 104035, --Giant Purse of Timeless Coins
 104260, --Satchel of Cosmic Mysteries
+104261, --Glowing Blue Ash
 104271, --Coalesced Turmoil
 104272, --Celestial Treasure Box
 104273, --Flame-scarred Cache of Offerings
