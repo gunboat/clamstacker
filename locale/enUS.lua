@@ -8,3 +8,6 @@ L["OPTIONS_ENABLE_NAME"] = "Enabled"
 L["OPTIONS_ENABLE_DESC"] = "Enabled / disable the ClamStacker"
 L["OPTIONS_ORIENTATION_NAME"] = "Orientation"
 L["OPTIONS_ORIENTATION_DESC"] = "Orientation of the ClamStacker popup"
+
+L["OPTIONS_LOCKBOXES_NAME"] = "Show lockboxes"
+L["OPTIONS_LOCKBOXES_DESC"] = "Display lockboxes in the ClamStacker popup?"

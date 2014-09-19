@@ -10,30 +10,48 @@ local function Set(list)
     return set
 end
 
-local clamItemIds = Set {
-
+local lockboxItemIds = Set {
 4632, --Ornate Bronze Lockbox
 4633, --Heavy Bronze Lockbox
 4634, --Iron Lockbox
 4636, --Strong Iron Lockbox
 4637, --Steel Lockbox
 4638, --Reinforced Steel Lockbox
-5523,
-5524,
-5738, --Covert Ops Pack
 5758, --Mithril Lockbox
 5759, --Thorium Lockbox
 5760, --Eternium Lockbox
+6354, --Small Locked Chest
+6355, --Sturdy Locked Chest
+13875, --Ironbound Locked Chest
+13918, --Reinforced Locked Chest
+16882, --Battered Junkbox
+16883, --Worn Junkbox
+16884, --Sturdy Junkbox
+16885, --Heavy Junkbox
+29569, --Strong Junkbox
+31952, --Khorium Lockbox
+43575, --Reinforced Junkbox
+43622, --Froststeel Lockbox
+43624, --Titanium Lockbox
+45986, --Tiny Titanium Lockbox
+63349, --Flame-Scarred Junkbox
+68729, --Elementium Lockbox
+88165, --Vine-Cracked Junkbox
+88567, --Ghost Iron Lockbox
+	
+}
+
+local clamItemIds = Set {
+5523, --small barnacled clam
+5524, --thick shelled clam
+5738, --Covert Ops Pack
 6307, --Message in a Bottle
 6351, --Dented Crate
 6352, --Waterlogged Crate
 6353, --Small Chest
-6354, --Small Locked Chest
-6355, --Sturdy Locked Chest
 6356, --Battered Chest
 6357, --Sealed Crate
 6643, --Bloated Smallfish
-6645,
 6645, --Bloated Mud Snapper
 6647, --Bloated Catfish
 6715, --Ruined Jumper Cables
@@ -41,14 +59,12 @@ local clamItemIds = Set {
 7190, --Rocket Boots Malfunction
 7209, --Tazan's Satchel
 7870, --Thaumaturgy Vessel Lockbox
-7973,
+7973, --Big-mouth clam
 8049, --Gnarlpine Necklace
 8366, --Bloated Trout
-8484,
 8484, --Gadgetzan Water Co. Care Package
 8647, --Egg Crate
 9265, --Cuergo's Hidden Treasure
-9276,
 9276, --Pirate's Footlocker
 9363, --Sparklematic-Wrapped Box
 9539, --Box of Rations
@@ -77,20 +93,14 @@ local clamItemIds = Set {
 12339, --Vaelan's Gift
 12849, --Demon Kissed Sack
 13874, --Heavy Crate
-13875, --Ironbound Locked Chest
 13881, --Bloated Redgill
 13891, --Bloated Salmon
-13918, --Reinforced Locked Chest
 15102, --Un'Goro Tested Sample
 15103, --Corrupt Tested Sample
 15699,
 15699, --Small Brown-Wrapped Package
 15874,
 15876, --Nathanos' Chest
-16882, --Battered Junkbox
-16883, --Worn Junkbox
-16884, --Sturdy Junkbox
-16885, --Heavy Junkbox
 17685,
 17685, --Smokywood Pastures Sampler
 17726,
@@ -215,13 +225,11 @@ local clamItemIds = Set {
 27511, --Inscribed Scrollcase
 27513,
 27513, --Curious Crate
-29569, --Strong Junkbox
 30260, --Voren'thal's Package
 30320, --Bundle of Nether Spikes
 30650, --Dertrok's Wand Case
 31408, --Offering of the Sha'tar
 31522, --Primal Mooncloth Supplies
-31952, --Khorium Lockbox
 31955, --Arelion's Knapsack
 32064, --Protectorate Treasure Cache
 32462, --Morthis' Materials
@@ -289,9 +297,6 @@ local clamItemIds = Set {
 43504,
 43504, --Winter Veil Gift
 43556, --Patroller's Pack
-43575, --Reinforced Junkbox
-43622, --Froststeel Lockbox
-43624, --Titanium Lockbox
 44113,
 44113, --Small Spice Bag
 44142, --Strange Tarot
@@ -317,7 +322,6 @@ local clamItemIds = Set {
 45878, --Large Sack of Ulduar Spoils
 45902,
 45909,
-45986, --Tiny Titanium Lockbox
 46007,
 46110, --Alchemist's Cache
 46740,
@@ -373,7 +377,6 @@ local clamItemIds = Set {
 61387,
 62062,
 62062, --Bulging Sack of Gold
-63349, --Flame-Scarred Junkbox
 64491, --Royal Reward
 64657, --Canopic Jar
 65513, --Crate of Tasty Meat
@@ -393,7 +396,6 @@ local clamItemIds = Set {
 68384, --Moonkin Egg
 68598, --Very Fat Sack of Coins
 68689, --Imported Supplies
-68729, --Elementium Lockbox
 68795, --Stendel's Bane
 68813, --Satchel of Freshly-Picked Herbs
 69817, --Hive Queen's Honeycomb
@@ -510,11 +512,9 @@ local clamItemIds = Set {
 87728, --Sack of Krasarang Paddlefish
 87729, --Sack of Golden Carp
 87730, --Sack of Crocolisk Belly
-88165, --Vine-Cracked Junkbox
 88457, --QA Test 1000g Box
 88458, --QA Test 10k G Box
 88496, -- Sealed Crate MoP
-88567, --Ghost Iron Lockbox
 89125, --Sack of Pet Supplies
 89427, --Ancient Mogu Treasure
 89428, --Ancient Mogu Treasure
@@ -648,20 +648,42 @@ local options = {
     handler = ClamStacker,
     desc = "Manage clams and other things that can be opened",
     args = {
+    	head1 = {
+    		name = "",
+    		desc = "Heading 1",
+    		type = "header",
+    		order = 10,
+    	},
         orientation = {
             name = "Orientation",
             desc = "Orientation of the popup window",
             type = "select",
             values = ClamStacker.OrientationChoices,
             set = function(info, val) ClamStacker.db.profile.orientation = val; ClamStacker:BAG_UPDATE() end,
-            get = function(info) return ClamStacker.db.profile.orientation end
+            get = function(info) return ClamStacker.db.profile.orientation end,
+            order = 20,
         },
+    	head2 = {
+    		name = "",
+    		desc = "Heading 2",
+    		type = "header",
+    		order = 30,
+    	},
+        lockboxes = {
+        	name = "Lockboxes",
+        	desc = "Show lockboxes in ClamStacker window?",
+        	type = "toggle",
+        	set = function(info, val) ClamStacker.db.profile.lockboxes = val; ClamStacker:BAG_UPDATE() end,
+        	get = function(info) return ClamStacker.db.profile.lockboxes end,
+        	order = 40,
+    	},
     },
 }
 
 local defaults = {
     profile = {
         orientation = 1,
+        lockboxes = true,
     }
 }
 
@@ -683,6 +705,9 @@ end
 function ClamStacker:OnInitialize()
     options.args.orientation.name = L["OPTIONS_ORIENTATION_NAME"]
     options.args.orientation.desc = L["OPTIONS_ORIENTATION_DESC"]
+
+    options.args.lockboxes.name = L["OPTIONS_LOCKBOXES_NAME"]
+    options.args.lockboxes.desc = L["OPTIONS_LOCKBOXES_DESC"]
 
     ClamStacker.orientation = L["ORIENTATION_HORIZONTAL"]
     defaults.profile.orientation = L["ORIENTATION_HORIZONTAL"]
@@ -739,7 +764,7 @@ function ClamStacker:BAG_UPDATE()
                 if itemName then
                     local itemString = select(3, string.find(itemLink, "^|c%x+|H(.+)|h%[.+%]"))
                     local itemId = select(2, strsplit(":", itemString))
-                    if clamItemIds[itemId] then
+                    if clamItemIds[itemId] or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId] ) then
                         self:Debug(itemId.." is a clam")
                         if not itemlist[itemId] then
                             self:Debug("adding entry for "..itemId)
