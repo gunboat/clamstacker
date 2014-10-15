@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.5.1"
+local version = "1.5.2"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -935,8 +935,8 @@ function ClamStacker:PopulatePopupFrame(numItems, itemlist)
 
         button:Show()
 
-        self:Debug("button:IsShown()="..(button:IsShown() or "nil"))
-        self:Debug("button:IsVisible()="..(button:IsVisible() or "nil"))
+        self:Debug("button:IsShown()="..tostring(button:IsShown()))
+        self:Debug("button:IsVisible()="..tostring(button:IsVisible()))
 
         i = i+1
     end
