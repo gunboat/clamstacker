@@ -637,6 +637,7 @@ local clamItemIds = Set {
 104296, --Ordon Ceremonial Robes
 105713, --Twisted Treasures of the Vale
 105714, --Coalesced Turmoil
+117392, --Loot-filled pumpkin
 }
 
 -- This will be filled in once we have I18N loaded
