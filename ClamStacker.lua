@@ -41,6 +41,41 @@ local lockboxItemIds = Set {
 	
 }
 
+local smallDraenorFish = Set {
+111589, --Small Crescent Saberfish
+111650, --Small Jawless Skulker
+111651, --Small Fat Sleeper
+111652, --Small Blind Lake Sturgeon
+111656, --Small Fire Ammonite
+111658, --Small Sea Scorpion
+111659, --Small Abyssal Gulper Eel
+111662, --Small Blackwater Whiptail
+
+}
+
+local mediumDraenorFish = Set {
+111595, --Crescent Saberfish
+111663, --Blackwater Whiptail
+111664, --Abyssal Gulper Eel
+111665, --Sea Scorpion
+111666, --Fire Ammonite
+111667, --Blind Lake Sturgeon
+111668, --Fat Sleeper
+111669, --Jawless Skulker
+
+}
+
+local largeDraenorFish = Set {
+111601, --Enormous Crescent Saberfish
+111670, --Enormous Blackwater Whiptail
+111671, --Enormous Abyssal Gulper Eel
+111672, --Enormous Sea Scorpion
+111673, --Enormous Fire Ammonite
+111674, --Enormous Blind Lake Sturgeon
+111675, --Enormous Fat Sleeper
+111676, --Enourmous Jawless Skulker
+}
+
 local clamItemIds = Set {
 5523, --small barnacled clam
 5524, --thick shelled clam
@@ -642,6 +677,12 @@ local clamItemIds = Set {
 117392, --Loot-filled pumpkin
 }
 
+local openableInStacks = {
+	{ smallDraenorFish,  20 },
+	{ mediumDraenorFish, 10 },
+	{ largeDraenorFish,   5 },
+}
+
 -- This will be filled in once we have I18N loaded
 ClamStacker.OrientationChoices = {}
 
@@ -680,6 +721,20 @@ local options = {
         	get = function(info) return ClamStacker.db.profile.lockboxes end,
         	order = 40,
     	},
+    	head3 = {
+    		name = "",
+    		desc = "Heading 3",
+    		type = "header",
+    		order = 50,
+    	},
+    	verbose = {
+    		name = "Verbose debug output",
+    		desc = "Print deebug output to the chat window",
+    		type = "toggle",
+    		set = function(info, val) ClamStacker.db.profile.verbose = val; ClamStacker:BAG_UPDATE() end,
+    		get = function(info) return ClamStacker.db.profile.verbose end,
+    		order = 60,
+    	},
     },
 }
 
@@ -687,6 +742,7 @@ local defaults = {
     profile = {
         orientation = 1,
         lockboxes = true,
+        verbose = false,
     }
 }
 
@@ -702,6 +758,9 @@ ClamStacker.itemButtons = {}
 function ClamStacker:Debug(...)
     if debugFrame then
         debugFrame:AddMessage(string.join(", ", ...))
+    end
+    if ClamStacker.db.profile.verbose then
+    	self:Print(string.join(", ", ...))
     end
 end
 
@@ -767,7 +826,16 @@ function ClamStacker:BAG_UPDATE()
                 if itemName then
                     local itemString = select(3, string.find(itemLink, "^|c%x+|H(.+)|h%[.+%]"))
                     local itemId = select(2, strsplit(":", itemString))
-                    if clamItemIds[itemId] or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId] ) then
+                    local openableStackDisplay = nil
+                    for i,v in ipairs(openableInStacks) do
+                    	if (v[1][itemId] and itemCount >= v[2]) then
+                    		openableStackDisplay = true
+                    	end
+                    end
+                    if clamItemIds[itemId]
+                    		or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId])
+                    		or openableStackDisplay
+                    		then
                         self:Debug(itemId.." is a clam")
                         if not itemlist[itemId] then
                             self:Debug("adding entry for "..itemId)
