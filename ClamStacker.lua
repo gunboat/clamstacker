@@ -38,6 +38,7 @@ local lockboxItemIds = Set {
 68729, --Elementium Lockbox
 88165, --Vine-Cracked Junkbox
 88567, --Ghost Iron Lockbox
+116920, --True Steel Lockbox
 	
 }
 
