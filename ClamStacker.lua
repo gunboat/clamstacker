@@ -805,6 +805,7 @@ end
 function ClamStacker:OnEnable()
     self:Print("v"..version.." loaded")
     self:RegisterBucketEvent("BAG_UPDATE", 0.5, "BAG_UPDATE");
+    self:BAG_UPDATE()
 end
 
 local function PLAYER_REGEN_ENABLED(self)
