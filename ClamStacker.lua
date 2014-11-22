@@ -683,6 +683,7 @@ local clamItemIds = Set {
 114662, --Tranquil satchel of helpful goods
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
+120151, --Gleaming Ashmaul Strongbox
 }
 
 local openableInStacks = {
