@@ -77,6 +77,11 @@ local largeDraenorFish = Set {
 111676, --Enourmous Jawless Skulker
 }
 
+local smallReagentBits = Set {
+89112,  --Mote of Harmony
+115502, --Small Luminous Shard
+}
+
 local clamItemIds = Set {
 5523, --small barnacled clam
 5524, --thick shelled clam
@@ -684,6 +689,7 @@ local openableInStacks = {
 	{ smallDraenorFish,  20 },
 	{ mediumDraenorFish, 10 },
 	{ largeDraenorFish,   5 },
+	{ smallReagentBits,  10 },
 }
 
 -- This will be filled in once we have I18N loaded
