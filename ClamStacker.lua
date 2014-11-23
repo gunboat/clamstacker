@@ -822,6 +822,7 @@ function ClamStacker:OnEnable()
     ClamStacker.cache.openableInStacks = {}
     for i,v in ipairs(openableInStacks) do
     	for ik,iv in pairs(v[1]) do
+    		self:Debug("adding item " .. ik .. " with count " .. v[2])
     		ClamStacker.cache.openableInStacks[ik] = v[2]
     	end
     end
@@ -852,7 +853,7 @@ function ClamStacker:BAG_UPDATE()
                     local itemId = select(2, strsplit(":", itemString))
                     if clamItemIds[itemId]
                     		or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId])
-                    		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and ClamStacker.cache.openableInStacks[itemId] < itemCount)
+                    		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and ClamStacker.cache.openableInStacks[itemId] <= itemCount)
                     		then
                         self:Debug(itemId.." is a clam")
                         if not itemlist[itemId] then
