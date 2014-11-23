@@ -80,6 +80,7 @@ local largeDraenorFish = Set {
 local smallReagentBits = Set {
 89112,  --Mote of Harmony
 115502, --Small Luminous Shard
+115504, --Fractured Temporal Crystal
 }
 
 local clamItemIds = Set {
@@ -786,6 +787,8 @@ function ClamStacker:OnInitialize()
 
     ClamStacker.db = LibStub("AceDB-3.0"):New("ClamStackerDB", defaults, "Default")
 
+    ClamStacker.cache = {}
+
     LibStub("AceConfig-3.0"):RegisterOptionsTable("ClamStacker", options)
 
     ClamStacker.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("ClamStacker", "ClamStacker")
@@ -813,6 +816,15 @@ end
 function ClamStacker:OnEnable()
     self:Print("v"..version.." loaded")
     self:RegisterBucketEvent("BAG_UPDATE", 0.5, "BAG_UPDATE");
+
+    -- preload map to avoid iterating "openableInStacks" all the time
+    ClamStacker.cache.openableInStacks = {}
+    for i,v in ipairs(openableInStacks) do
+    	for ik,iv in pairs(v[1]) do
+    		ClamStacker.cache.openableInStacks[ik] = v[2]
+    	end
+    end
+
     self:BAG_UPDATE()
 end
 
@@ -837,15 +849,9 @@ function ClamStacker:BAG_UPDATE()
                 if itemName then
                     local itemString = select(3, string.find(itemLink, "^|c%x+|H(.+)|h%[.+%]"))
                     local itemId = select(2, strsplit(":", itemString))
-                    local openableStackDisplay = nil
-                    for i,v in ipairs(openableInStacks) do
-                    	if (v[1][itemId] and itemCount >= v[2]) then
-                    		openableStackDisplay = true
-                    	end
-                    end
                     if clamItemIds[itemId]
                     		or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId])
-                    		or openableStackDisplay
+                    		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and ClamStacker.cache.openableInStacks[itemId] < itemCount)
                     		then
                         self:Debug(itemId.." is a clam")
                         if not itemlist[itemId] then
