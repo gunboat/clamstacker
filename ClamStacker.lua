@@ -686,6 +686,10 @@ local clamItemIds = Set {
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
 120151, --Gleaming Ashmaul Strongbox
+120322, --Klinking Stacked Card Deck
+120323, --Bulging Stacked Card Deck
+120324, --Bursting Stacked Card Deck
+120325, --Overflowing Stacked Card Deck
 }
 
 local openableInStacks = {
