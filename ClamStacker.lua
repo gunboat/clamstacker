@@ -680,6 +680,7 @@ local clamItemIds = Set {
 105713, --Twisted Treasures of the Vale
 105714, --Coalesced Turmoil
 112623, --Pack of Fishing Supplies
+113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
 114662, --Tranquil satchel of helpful goods
 116062, --Greater Darkmoon Pet Supplies
