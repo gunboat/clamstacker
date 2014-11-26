@@ -682,10 +682,12 @@ local clamItemIds = Set {
 112623, --Pack of Fishing Supplies
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
+114116, --Bag of Salvaged Goods
 114662, --Tranquil satchel of helpful goods
 116062, --Greater Darkmoon Pet Supplies
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
+118473, --Small Sack of Salvaged Goods
 120151, --Gleaming Ashmaul Strongbox
 120322, --Klinking Stacked Card Deck
 120323, --Bulging Stacked Card Deck
