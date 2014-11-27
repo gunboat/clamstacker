@@ -684,6 +684,8 @@ local clamItemIds = Set {
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
 114116, --Bag of Salvaged Goods
+114119, --Crate of Salvage
+114120, --Big Crate of Salvage
 114662, --Tranquil satchel of helpful goods
 116062, --Greater Darkmoon Pet Supplies
 117392, --Loot-filled pumpkin
