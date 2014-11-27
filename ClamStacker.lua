@@ -79,6 +79,7 @@ local largeDraenorFish = Set {
 
 local smallReagentBits = Set {
 89112,  --Mote of Harmony
+110610, --Raw Beast Hide Scraps
 115502, --Small Luminous Shard
 115504, --Fractured Temporal Crystal
 }
