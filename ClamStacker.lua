@@ -39,7 +39,13 @@ local lockboxItemIds = Set {
 88165, --Vine-Cracked Junkbox
 88567, --Ghost Iron Lockbox
 116920, --True Steel Lockbox
-	
+}
+
+local salvagedGoods = Set {
+114116, --Bag of Salvaged Goods
+114119, --Crate of Salvage
+114120, --Big Crate of Salvage
+118473, --Small Sack of Salvaged Goods
 }
 
 local smallDraenorFish = Set {
@@ -683,14 +689,10 @@ local clamItemIds = Set {
 112623, --Pack of Fishing Supplies
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
-114116, --Bag of Salvaged Goods
-114119, --Crate of Salvage
-114120, --Big Crate of Salvage
 114662, --Tranquil satchel of helpful goods
 116062, --Greater Darkmoon Pet Supplies
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
-118473, --Small Sack of Salvaged Goods
 120151, --Gleaming Ashmaul Strongbox
 120322, --Klinking Stacked Card Deck
 120323, --Bulging Stacked Card Deck
@@ -733,7 +735,7 @@ local options = {
     		name = "",
     		desc = "Heading 2",
     		type = "header",
-    		order = 30,
+    		order = 200,
     	},
         lockboxes = {
         	name = "Lockboxes",
@@ -741,13 +743,27 @@ local options = {
         	type = "toggle",
         	set = function(info, val) ClamStacker.db.profile.lockboxes = val; ClamStacker:BAG_UPDATE() end,
         	get = function(info) return ClamStacker.db.profile.lockboxes end,
-        	order = 40,
+        	order = 210,
     	},
     	head3 = {
     		name = "",
     		desc = "Heading 3",
     		type = "header",
-    		order = 50,
+    		order = 300,
+    	},
+    	salvage = {
+    		name = "Salvage",
+    		desc = "Show salvage containers in ClamStacker window?",
+    		type = "toggle",
+    		set = function(info, val) ClamStacker.db.profile.salvage = val; ClamStacker:BAG_UPDATE() end,
+    		get = function(info) return ClamStacker.db.profile.salvage end,
+    		order = 310,
+    	},
+    	head4 = {
+    		name = "",
+    		desc = "Heading 4",
+    		type = "header",
+    		order = 400,
     	},
     	verbose = {
     		name = "Verbose debug output",
@@ -755,7 +771,7 @@ local options = {
     		type = "toggle",
     		set = function(info, val) ClamStacker.db.profile.verbose = val; ClamStacker:BAG_UPDATE() end,
     		get = function(info) return ClamStacker.db.profile.verbose end,
-    		order = 60,
+    		order = 410,
     	},
     },
 }
@@ -792,6 +808,9 @@ function ClamStacker:OnInitialize()
 
     options.args.lockboxes.name = L["OPTIONS_LOCKBOXES_NAME"]
     options.args.lockboxes.desc = L["OPTIONS_LOCKBOXES_DESC"]
+
+    options.args.salvage.name = L["OPTIONS_SALVAGE_NAME"]
+    options.args.salvage.desc = L["OPTIONS_SALVAGE_DESC"]
 
     ClamStacker.orientation = L["ORIENTATION_HORIZONTAL"]
     defaults.profile.orientation = L["ORIENTATION_HORIZONTAL"]
@@ -863,6 +882,7 @@ function ClamStacker:BAG_UPDATE()
                     local itemId = select(2, strsplit(":", itemString))
                     if clamItemIds[itemId]
                     		or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId])
+                    		or (ClamStacker.db.profile.salvage and salvagedGoods[itemId])
                     		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and ClamStacker.cache.openableInStacks[itemId] <= itemCount)
                     		then
                         self:Debug(itemId.." is a clam")
