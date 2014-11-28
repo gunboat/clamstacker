@@ -693,6 +693,12 @@ local clamItemIds = Set {
 116062, --Greater Darkmoon Pet Supplies
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
+119036, --Box of Storied Treasures
+119037, --Supply of Storied Rarities
+119040, --Cache of Mingled Treasures
+119041, --Strongbox of Mysterious Treasures
+119042, --Crate of Valuable Treasures
+119043, --Trove of Smoldering Treasures
 120151, --Gleaming Ashmaul Strongbox
 120322, --Klinking Stacked Card Deck
 120323, --Bulging Stacked Card Deck
