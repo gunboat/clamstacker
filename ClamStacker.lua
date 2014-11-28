@@ -868,6 +868,12 @@ end
 function ClamStacker:BAG_UPDATE()
     self:Debug("BAG_UPDATE called")
 
+    local zoneName = GetZoneText()
+    local inGarrison = (zoneName == L["GARRISON_ZONE_NAME"])
+    self:Debug("zoneName = [" .. zoneName .. "]")
+    self:Debug("GARRISON_ZONE_NAME = [" .. L["GARRISON_ZONE_NAME"] .. "]")
+    self:Debug("inGarrison = " .. (inGarrison and "true" or "nil"))
+
     -- See if we have any clams.
     local itemlist = {}
     local numItems = 0
@@ -882,7 +888,7 @@ function ClamStacker:BAG_UPDATE()
                     local itemId = select(2, strsplit(":", itemString))
                     if clamItemIds[itemId]
                     		or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId])
-                    		or (ClamStacker.db.profile.salvage and salvagedGoods[itemId])
+                    		or (inGarrison and ClamStacker.db.profile.salvage and salvagedGoods[itemId])
                     		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and ClamStacker.cache.openableInStacks[itemId] <= itemCount)
                     		then
                         self:Debug(itemId.." is a clam")
