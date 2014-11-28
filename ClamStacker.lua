@@ -90,6 +90,73 @@ local smallReagentBits = Set {
 115504, --Fractured Temporal Crystal
 }
 
+local smallOreBits = Set {
+109991, --True Iron Nugget
+109992, --Blackrock Fragment
+}
+
+local smallHerbBits = Set {
+97619,
+97620,
+97622,
+97623,
+97624,
+108318,
+108319,
+108320,
+108321,
+108322,
+108323,
+108324,
+108325,
+108326,
+108327,
+108328,
+108329,
+108330,
+108331,
+108332,
+108333,
+108334,
+108335,
+108336,
+108337,
+108338,
+108339,
+108340,
+108341,
+108342,
+108343,
+108344,
+108345,
+108346,
+108347,
+108348,
+108349,
+108350,
+108351,
+108352,
+108353,
+108354,
+108355,
+108356,
+108357,
+108358,
+108359,
+108360,
+108361,
+108362,
+108363,
+108364,
+108365,
+109624,
+109625,
+109626,
+109627,
+109628,
+109629, --Talador Orchid Petal
+}
+
 local clamItemIds = Set {
 5523, --small barnacled clam
 5524, --thick shelled clam
@@ -691,6 +758,7 @@ local clamItemIds = Set {
 113992, --Scribe's Research Notes
 114662, --Tranquil satchel of helpful goods
 116062, --Greater Darkmoon Pet Supplies
+116404, -- Pilgrim's Bounty
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
 119036, --Box of Storied Treasures
@@ -711,6 +779,8 @@ local openableInStacks = {
 	{ mediumDraenorFish, 10 },
 	{ largeDraenorFish,   5 },
 	{ smallReagentBits,  10 },
+	{ smallOreBits,      10 },
+	{ smallHerbBits,     10 }
 }
 
 -- This will be filled in once we have I18N loaded
