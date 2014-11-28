@@ -852,6 +852,7 @@ end
 function ClamStacker:OnEnable()
     self:Print("v"..version.." loaded")
     self:RegisterBucketEvent("BAG_UPDATE", 0.5, "BAG_UPDATE");
+    self:RegisterEvent("ZONE_CHANGED")
 
     -- preload map to avoid iterating "openableInStacks" all the time
     ClamStacker.cache.openableInStacks = {}
@@ -871,14 +872,27 @@ local function PLAYER_REGEN_ENABLED(self)
     self:Show()
 end
 
-function ClamStacker:BAG_UPDATE()
-    self:Debug("BAG_UPDATE called")
-
+function ClamStacker:inGarrison()
     local zoneName = GetZoneText()
     local inGarrison = (zoneName == L["GARRISON_ZONE_NAME"])
     self:Debug("zoneName = [" .. zoneName .. "]")
     self:Debug("GARRISON_ZONE_NAME = [" .. L["GARRISON_ZONE_NAME"] .. "]")
     self:Debug("inGarrison = " .. (inGarrison and "true" or "nil"))
+    return inGarrison
+end
+
+function ClamStacker:ZONE_CHANGED()
+	self:Debug("ZONE_CHANGED called")
+    local inGarrison = self:inGarrison()
+    if (inGarrison) then
+		self:BAG_UPDATE()
+	end
+end
+
+function ClamStacker:BAG_UPDATE()
+    self:Debug("BAG_UPDATE called")
+
+    local inGarrison = self:inGarrison()
 
     -- See if we have any clams.
     local itemlist = {}
