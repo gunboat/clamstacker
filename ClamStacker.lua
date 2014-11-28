@@ -761,6 +761,14 @@ local clamItemIds = Set {
 116404, -- Pilgrim's Bounty
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
+118924, --Cache of Arms
+118925, --Plundered Booty
+118926, --Huge Pile of Skins
+118927, --Maximillian's Laundry
+118928, --Faintly-Sparkling Cache
+118929, --Sack of Mined Ore
+118930, --Bag of Everbloom Herbs
+118931, --Leonid's Bag of Supplies
 119036, --Box of Storied Treasures
 119037, --Supply of Storied Rarities
 119040, --Cache of Mingled Treasures
