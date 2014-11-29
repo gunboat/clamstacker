@@ -776,6 +776,7 @@ local clamItemIds = Set {
 119042, --Crate of Valuable Treasures
 119043, --Trove of Smoldering Treasures
 120151, --Gleaming Ashmaul Strongbox
+120320, --Invader's Abandoned Sack
 120322, --Klinking Stacked Card Deck
 120323, --Bulging Stacked Card Deck
 120324, --Bursting Stacked Card Deck
