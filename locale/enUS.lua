@@ -14,5 +14,3 @@ L["OPTIONS_LOCKBOXES_DESC"] = "Display lockboxes in the ClamStacker popup?"
 
 L["OPTIONS_SALVAGE_NAME"] = "Show salvage"
 L["OPTIONS_SALVAGE_DESC"] = "Display salvage containers in the ClamStacker popup?"
-
-L["GARRISON_ZONE_NAME"] = "Lunarfall"

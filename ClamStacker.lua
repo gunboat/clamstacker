@@ -952,10 +952,11 @@ local function PLAYER_REGEN_ENABLED(self)
 end
 
 function ClamStacker:inGarrison()
-    local zoneName = GetZoneText()
-    local inGarrison = (zoneName == L["GARRISON_ZONE_NAME"])
-    self:Debug("zoneName = [" .. zoneName .. "]")
-    self:Debug("GARRISON_ZONE_NAME = [" .. L["GARRISON_ZONE_NAME"] .. "]")
+    local mapID = GetCurrentMapAreaID()
+    local inGarrison = false
+    if mapID == 971 or mapID == 976 then
+        inGarrison = true
+    end
     self:Debug("inGarrison = " .. (inGarrison and "true" or "nil"))
     return inGarrison
 end
