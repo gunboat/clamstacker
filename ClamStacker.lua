@@ -1,4 +1,4 @@
-ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0", "AceBucket-3.0")
+ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
 local version = "1.6.15"
 
@@ -812,7 +812,7 @@ local options = {
             desc = "Orientation of the popup window",
             type = "select",
             values = ClamStacker.OrientationChoices,
-            set = function(info, val) ClamStacker.db.profile.orientation = val; ClamStacker:BAG_UPDATE() end,
+            set = function(info, val) ClamStacker.db.profile.orientation = val; ClamStacker:BAG_UPDATE_DELAYED() end,
             get = function(info) return ClamStacker.db.profile.orientation end,
             order = 20,
         },
@@ -826,7 +826,7 @@ local options = {
         	name = "Lockboxes",
         	desc = "Show lockboxes in ClamStacker window?",
         	type = "toggle",
-        	set = function(info, val) ClamStacker.db.profile.lockboxes = val; ClamStacker:BAG_UPDATE() end,
+        	set = function(info, val) ClamStacker.db.profile.lockboxes = val; ClamStacker:BAG_UPDATE_DELAYED() end,
         	get = function(info) return ClamStacker.db.profile.lockboxes end,
         	order = 210,
     	},
@@ -840,7 +840,7 @@ local options = {
     		name = "Salvage",
     		desc = "Show salvage containers in ClamStacker window?",
     		type = "toggle",
-    		set = function(info, val) ClamStacker.db.profile.salvage = val; ClamStacker:BAG_UPDATE() end,
+    		set = function(info, val) ClamStacker.db.profile.salvage = val; ClamStacker:BAG_UPDATE_DELAYED() end,
     		get = function(info) return ClamStacker.db.profile.salvage end,
     		order = 310,
     	},
@@ -854,7 +854,7 @@ local options = {
     		name = "Verbose debug output",
     		desc = "Print deebug output to the chat window",
     		type = "toggle",
-    		set = function(info, val) ClamStacker.db.profile.verbose = val; ClamStacker:BAG_UPDATE() end,
+    		set = function(info, val) ClamStacker.db.profile.verbose = val; ClamStacker:BAG_UPDATE_DELAYED() end,
     		get = function(info) return ClamStacker.db.profile.verbose end,
     		order = 410,
     	},
@@ -930,7 +930,7 @@ end
 
 function ClamStacker:OnEnable()
     self:Print("v"..version.." loaded")
-    self:RegisterBucketEvent("BAG_UPDATE", 0.5, "BAG_UPDATE");
+    self:RegisterEvent("BAG_UPDATE_DELAYED");
     self:RegisterEvent("ZONE_CHANGED")
 
     -- preload map to avoid iterating "openableInStacks" all the time
@@ -942,7 +942,7 @@ function ClamStacker:OnEnable()
     	end
     end
 
-    self:BAG_UPDATE()
+    self:BAG_UPDATE_DELAYED()
 end
 
 local function PLAYER_REGEN_ENABLED(self)
@@ -965,12 +965,12 @@ function ClamStacker:ZONE_CHANGED()
 	self:Debug("ZONE_CHANGED called")
     local inGarrison = self:inGarrison()
     if (inGarrison) then
-		self:BAG_UPDATE()
+		self:BAG_UPDATE_DELAYED()
 	end
 end
 
-function ClamStacker:BAG_UPDATE()
-    self:Debug("BAG_UPDATE called")
+function ClamStacker:BAG_UPDATE_DELAYED()
+    self:Debug("BAG_UPDATE_DELAYED called")
 
     local inGarrison = self:inGarrison()
 
