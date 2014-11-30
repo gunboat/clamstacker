@@ -775,6 +775,14 @@ local clamItemIds = Set {
 119041, --Strongbox of Mysterious Treasures
 119042, --Crate of Valuable Treasures
 119043, --Trove of Smoldering Treasures
+119191, --Jewelcrafting Payment
+119195, --Jewelcrafting Payment
+119196, --Jewelcrafting Payment
+119197, --Jewelcrafting Payment
+119198, --Jewelcrafting Payment
+119199, --Jewelcrafting Payment
+119200, --Jewelcrafting Payment
+119201, --Jewelcrafting Payment
 120151, --Gleaming Ashmaul Strongbox
 120320, --Invader's Abandoned Sack
 120322, --Klinking Stacked Card Deck
