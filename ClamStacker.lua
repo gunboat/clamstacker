@@ -762,6 +762,7 @@ local clamItemIds = Set {
 109256, --Garrison Blueprint: Engineering Works, Level 2
 109257, --Garrison Blueprint: Engineering Works, Level 3
 109258, --Garrison Blueprint: Engineering Works, Level 1
+109558, --A Treatise on the Alchemy of Draenor
 109576, --Garrison Blueprint: Lunarfall Excavation, Level 2
 109577, --Garrison Blueprint: Herb Garden, Level 2
 109578, --Garrison Blueprint: Fishing Shack
@@ -779,6 +780,8 @@ local clamItemIds = Set {
 111816, --Garrison Blueprint: Tailoring Emporium, Level 1
 111817, --Garrison Blueprint: Enchanter's Study, Level 1
 111818, --Garrison Blueprint: The Tannery, Level 1
+111921, --Draenor Engineering
+111922, --Draenor Enchanting
 111927, --Garrison Blueprint: Fishing Shack, Level 2
 111928, --Garrison Blueprint: Fishing Shack, Level 3
 111929, --Garrison Blueprint: Alchemy Lab, Level 2
@@ -823,6 +826,10 @@ local clamItemIds = Set {
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
 114662, --Tranquil satchel of helpful goods
+115356, --Draenor Blacksmithing
+115357, --Draenor Tailoring
+115358, --Draenor Leatherworking
+115359, --Draenor Jewelcrafting
 116062, --Greater Darkmoon Pet Supplies
 116185, --Garrison Blueprint: War Mill, Level 2
 116186, --Garrison Blueprint: War Mill, Level 3
