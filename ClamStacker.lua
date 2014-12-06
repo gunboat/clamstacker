@@ -753,6 +753,13 @@ local clamItemIds = Set {
 104296, --Ordon Ceremonial Robes
 105713, --Twisted Treasures of the Vale
 105714, --Coalesced Turmoil
+109586, --Brittle Cartography Journal
+111349, --A Treatise on Mining in Draenor
+111350, --A Compendium of the Herbs of Draenor
+111351, --A Guide to Skinning in Draenor
+111356, --Fishing Guide to Draenor
+111364, --First Aid in Draenor
+111387, --The Joy of Draenor Cooking
 112623, --Pack of Fishing Supplies
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
