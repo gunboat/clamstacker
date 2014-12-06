@@ -753,6 +753,18 @@ local clamItemIds = Set {
 104296, --Ordon Ceremonial Robes
 105713, --Twisted Treasures of the Vale
 105714, --Coalesced Turmoil
+107694, --Garrison Blueprint: Lunarfall Inn, Level 2
+109062, --Garrison Blueprint: Mage Tower, Level 2
+109063, --Garrison Blueprint: Mage Tower, Level 3
+109065, --Garrison Blueprint: Lunarfall Inn, Level 3
+109254, --Garrison Blueprint: Lumber Mill, Level 2
+109255, --Garrison Blueprint: Lumber Mill, Level 3
+109256, --Garrison Blueprint: Engineering Works, Level 2
+109257, --Garrison Blueprint: Engineering Works, Level 3
+109258, --Garrison Blueprint: Engineering Works, Level 1
+109576, --Garrison Blueprint: Lunarfall Excavation, Level 2
+109577, --Garrison Blueprint: Herb Garden, Level 2
+109578, --Garrison Blueprint: Fishing Shack
 109586, --Brittle Cartography Journal
 111349, --A Treatise on Mining in Draenor
 111350, --A Compendium of the Herbs of Draenor
@@ -760,14 +772,73 @@ local clamItemIds = Set {
 111356, --Fishing Guide to Draenor
 111364, --First Aid in Draenor
 111387, --The Joy of Draenor Cooking
+111812, --Garrison Blueprint: Alchemy Lab, Level 1
+111813, --Garrison Blueprint: The Forge, Level 1
+111814, --Garrison Blueprint: Gem Boutique, Level 1
+111815, --Garrison Blueprint: Scribe's Quarters, Level 1
+111816, --Garrison Blueprint: Tailoring Emporium, Level 1
+111817, --Garrison Blueprint: Enchanter's Study, Level 1
+111818, --Garrison Blueprint: The Tannery, Level 1
+111927, --Garrison Blueprint: Fishing Shack, Level 2
+111928, --Garrison Blueprint: Fishing Shack, Level 3
+111929, --Garrison Blueprint: Alchemy Lab, Level 2
+111930, --Garrison Blueprint: Alchemy Lab, Level 3
+111956, --Garrison Blueprint: Barracks, Level 1
+111957, --Garrison Blueprint: Salvage Yard, Level 1
+111966, --Garrison Blueprint: Dwarven Bunker, Level 2
+111967, --Garrison Blueprint: Dwarven Bunker, Level 3
+111968, --Garrison Blueprint: Barn, Level 2
+111969, --Garrison Blueprint: Barn, Level 3
+111970, --Garrison Blueprint: Barracks, Level 2
+111971, --Garrison Blueprint: Barracks, Level 3
+111972, --Garrison Blueprint: Enchanter's Study, Level 2
+111973, --Garrison Blueprint: Enchanter's Study, Level 3
+111974, --Garrison Blueprint: Gem Boutique, Level 2
+111975, --Garrison Blueprint: Gem Boutique, Level 3
+111976, --Garrison Blueprint: Salvage Yard, Level 2
+111977, --Garrison Blueprint: Salvage Yard, Level 3
+111978, --Garrison Blueprint: Scribe's Quarters, Level 2
+111979, --Garrison Blueprint: Scribe's Quarters, Level 3
+111980, --Garrison Blueprint: Gladiator's Sanctum, Level 2
+111981, --Garrison Blueprint: Gladiator's Sanctum, Level 3
+111982, --Garrison Blueprint: Storehouse, Level 2
+111983, --Garrison Blueprint: Storehouse, Level 3
+111984, --Garrison Blueprint: Gnomish Gearworks, Level 2
+111985, --Garrison Blueprint: Gnomish Gearworks, Level 3
+111986, --Garrison Blueprint: Trading Post, Level 2
+111987, --Garrison Blueprint: Trading Post, Level 3
+111988, --Garrison Blueprint: The Tannery, Level 2
+111989, --Garrison Blueprint: The Tannery, Level 3
+111991, --Garrison Blueprint: The Forge, Level 3
+111992, --Garrison Blueprint: Tailoring Emporium, Level 2
+111993, --Garrison Blueprint: Tailoring Emporium, Level 3
+111996, --Garrison Blueprint: Lunarfall Excavation, Level 3
+111997, --Garrison Blueprint: Herb Garden, Level 3
+111998, --Garrison Blueprint: Menagerie, Level 2
+111999, --Garrison Blueprint: Menagerie, Level 3
+112002, --Garrison Blueprint: Stables, Level 2
+112003, --Garrison Blueprint: Stables, Level 3
 112623, --Pack of Fishing Supplies
+113138, --Garrison Blueprint: Lunarfall Excavation
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
 114662, --Tranquil satchel of helpful goods
 116062, --Greater Darkmoon Pet Supplies
+116185, --Garrison Blueprint: War Mill, Level 2
+116186, --Garrison Blueprint: War Mill, Level 3
+116196, --Garrison Blueprint: Spirit Lodge, Level 2
+116197, --Garrison Blueprint: Spirit Lodge, Level 3
+116200, --Garrison Blueprint: Goblin Workshop, Level 2
+116201, --Garrison Blueprint: Goblin Workshop, Level 3
+116247, --Garrison Blueprint: Frostwall Mines
+116248, --Garrison Blueprint: Frostwall Mines, Level 2
+116249, --Garrison Blueprint: Frostwall Mines, Level 3
 116404, -- Pilgrim's Bounty
+116431, --Garrison Blueprint: Frostwall Tavern, Level 2
+116432, --Garrison Blueprint: Frostwall Tavern, Level 3
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
+118215, --Book of Garrison Blueprints
 118924, --Cache of Arms
 118925, --Plundered Booty
 118926, --Huge Pile of Skins
