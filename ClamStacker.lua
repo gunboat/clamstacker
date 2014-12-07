@@ -825,6 +825,7 @@ local clamItemIds = Set {
 113138, --Garrison Blueprint: Lunarfall Excavation
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
+114116, --Bag of Salvaged Goods
 114662, --Tranquil satchel of helpful goods
 115356, --Draenor Blacksmithing
 115357, --Draenor Tailoring
@@ -846,6 +847,7 @@ local clamItemIds = Set {
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
 118215, --Book of Garrison Blueprints
+118473, --Small Sack of Salvaged Goods
 118924, --Cache of Arms
 118925, --Plundered Booty
 118926, --Huge Pile of Skins
