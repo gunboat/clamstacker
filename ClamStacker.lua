@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.6.19"
+local version = "1.6.20"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
@@ -831,6 +831,7 @@ local clamItemIds = Set {
 115357, --Draenor Tailoring
 115358, --Draenor Leatherworking
 115359, --Draenor Jewelcrafting
+115981, --Abrogator Stone Cluster
 116062, --Greater Darkmoon Pet Supplies
 116185, --Garrison Blueprint: War Mill, Level 2
 116186, --Garrison Blueprint: War Mill, Level 3
