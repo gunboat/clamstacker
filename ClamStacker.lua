@@ -849,6 +849,7 @@ local clamItemIds = Set {
 118193, --Mysterious Shining Lockbox
 118215, --Book of Garrison Blueprints
 118473, --Small Sack of Salvaged Goods
+118759, --Alchemy Experiment
 118924, --Cache of Arms
 118925, --Plundered Booty
 118926, --Huge Pile of Skins
