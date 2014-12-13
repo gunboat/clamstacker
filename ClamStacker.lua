@@ -845,6 +845,7 @@ local clamItemIds = Set {
 116404, -- Pilgrim's Bounty
 116431, --Garrison Blueprint: Frostwall Tavern, Level 2
 116432, --Garrison Blueprint: Frostwall Tavern, Level 3
+116980, --Invader's Forgotten Treasure
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
 118215, --Book of Garrison Blueprints
@@ -873,6 +874,7 @@ local clamItemIds = Set {
 119200, --Jewelcrafting Payment
 119201, --Jewelcrafting Payment
 120151, --Gleaming Ashmaul Strongbox
+120319, --Invader's Damaged Cache
 120320, --Invader's Abandoned Sack
 120322, --Klinking Stacked Card Deck
 120323, --Bulging Stacked Card Deck
