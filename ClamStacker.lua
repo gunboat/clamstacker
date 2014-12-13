@@ -91,6 +91,23 @@ local smallReagentBits = Set {
 }
 
 local smallOreBits = Set {
+97512,
+97546,
+108294,
+108296,
+108297,
+108298,
+108299,
+108300,
+108301,
+108302,
+108304,
+108305,
+108306,
+108307,
+108308,
+108309,
+108391,
 109991, --True Iron Nugget
 109992, --Blackrock Fragment
 }
@@ -98,6 +115,7 @@ local smallOreBits = Set {
 local smallHerbBits = Set {
 97619,
 97620,
+97621, -- Silkweed Stem
 97622,
 97623,
 97624,
@@ -155,6 +173,31 @@ local smallHerbBits = Set {
 109627,
 109628,
 109629, --Talador Orchid Petal
+}
+
+local smallLeatherBits = Set {
+2934,
+}
+
+local mediumLeatherBits = Set {
+25649,
+33567,
+72162,
+}
+
+local largeLeatherBits = Set {
+112155,
+112156,
+112157,
+112158,
+112177,
+112178,
+112179,
+112180,
+112181,
+112182,
+112184,
+112185,
 }
 
 local clamItemIds = Set {
@@ -874,6 +917,7 @@ local clamItemIds = Set {
 119200, --Jewelcrafting Payment
 119201, --Jewelcrafting Payment
 120151, --Gleaming Ashmaul Strongbox
+120170, -- Partially-Digested Bag
 120319, --Invader's Damaged Cache
 120320, --Invader's Abandoned Sack
 120322, --Klinking Stacked Card Deck
@@ -888,7 +932,10 @@ local openableInStacks = {
 	{ largeDraenorFish,   5 },
 	{ smallReagentBits,  10 },
 	{ smallOreBits,      10 },
-	{ smallHerbBits,     10 }
+	{ smallHerbBits,     10 },
+	{ smallLeatherBits,   3 },
+	{ mediumLeatherBits,  5 },
+	{ largeLeatherBits,  10 },
 }
 
 -- This will be filled in once we have I18N loaded
