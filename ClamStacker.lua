@@ -868,14 +868,17 @@ local clamItemIds = Set {
 113138, --Garrison Blueprint: Lunarfall Excavation
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
+114028, --Small Pouch of Coins
 114116, --Bag of Salvaged Goods
 114662, --Tranquil satchel of helpful goods
+114970, --Small Pouch of Coins
 115356, --Draenor Blacksmithing
 115357, --Draenor Tailoring
 115358, --Draenor Leatherworking
 115359, --Draenor Jewelcrafting
 115981, --Abrogator Stone Cluster
 116062, --Greater Darkmoon Pet Supplies
+116111, --Small Pouch of Coins
 116185, --Garrison Blueprint: War Mill, Level 2
 116186, --Garrison Blueprint: War Mill, Level 3
 116196, --Garrison Blueprint: Spirit Lodge, Level 2
@@ -885,9 +888,11 @@ local clamItemIds = Set {
 116247, --Garrison Blueprint: Frostwall Mines
 116248, --Garrison Blueprint: Frostwall Mines, Level 2
 116249, --Garrison Blueprint: Frostwall Mines, Level 3
+116376, --Small Pouch of Coins
 116404, -- Pilgrim's Bounty
 116431, --Garrison Blueprint: Frostwall Tavern, Level 2
 116432, --Garrison Blueprint: Frostwall Tavern, Level 3
+116764, --Small Pouch of Coins
 116980, --Invader's Forgotten Treasure
 117392, --Loot-filled pumpkin
 118193, --Mysterious Shining Lockbox
