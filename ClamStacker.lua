@@ -412,7 +412,6 @@ local clamItemIds = Set {
 34077,
 34077, --Crudely Wrapped Gift
 34119, --Black Conrad's Treasure
-34426,
 34426, --Winter Veil Gift
 34583, --Aldor Supplies Package
 34584, --Scryer Supplies Package
@@ -453,7 +452,6 @@ local clamItemIds = Set {
 42108,
 43346, --Large Satchel of Spoils
 43347, --Satchel of Spoils
-43504,
 43504, --Winter Veil Gift
 43556, --Patroller's Pack
 44113,
@@ -483,7 +481,6 @@ local clamItemIds = Set {
 45909,
 46007,
 46110, --Alchemist's Cache
-46740,
 46740, --Winter Veil Gift
 46809, --Bountiful Cookbook
 46810, --Bountiful Cookbook
@@ -545,7 +542,6 @@ local clamItemIds = Set {
 67250,
 67250, --Satchel of Helpful Goods
 67414,
-67443,
 67443, --Winter Veil Gift
 67495,
 67539,
@@ -570,7 +566,6 @@ local clamItemIds = Set {
 69999, --Moat Monster Feeding Kit
 70719, --Water-Filled Gills
 70931, --Scrooge's Payoff
-70938,
 70938, --Winter Veil Gift
 71631,
 71631, --Zen'Vorka's Cache
@@ -892,6 +887,7 @@ local clamItemIds = Set {
 116404, -- Pilgrim's Bounty
 116431, --Garrison Blueprint: Frostwall Tavern, Level 2
 116432, --Garrison Blueprint: Frostwall Tavern, Level 3
+116761, --Winter Veil Gift
 116764, --Small Pouch of Coins
 116980, --Invader's Forgotten Treasure
 117392, --Loot-filled pumpkin
