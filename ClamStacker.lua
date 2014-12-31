@@ -573,6 +573,7 @@ local clamItemIds = Set {
 73792,
 73792, --Stolen Present
 77501, --Blue Blizzcon Bag
+77952, --Elementium Gem Cluster
 77956, --Spectral Mount Crate
 78890,
 78891,
