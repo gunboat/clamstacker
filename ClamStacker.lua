@@ -920,6 +920,8 @@ local clamItemIds = Set {
 119201, --Jewelcrafting Payment
 120151, --Gleaming Ashmaul Strongbox
 120170, -- Partially-Digested Bag
+120301, --Armor Enhancement Token
+120302, --Weapon Enhancement Token
 120319, --Invader's Damaged Cache
 120320, --Invader's Abandoned Sack
 120322, --Klinking Stacked Card Deck
