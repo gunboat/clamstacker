@@ -895,6 +895,9 @@ local clamItemIds = Set {
 118193, --Mysterious Shining Lockbox
 118215, --Book of Garrison Blueprints
 118473, --Small Sack of Salvaged Goods
+118529, --Cache of Highmaul Treasures
+118530, --Cache of Highmaul Treasures
+118531, --Cache of Highmaul Treasures
 118759, --Alchemy Experiment
 118924, --Cache of Arms
 118925, --Plundered Booty
