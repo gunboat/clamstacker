@@ -931,6 +931,7 @@ local clamItemIds = Set {
 120323, --Bulging Stacked Card Deck
 120324, --Bursting Stacked Card Deck
 120325, --Overflowing Stacked Card Deck
+122535, --Traveler's Pet Supplies
 }
 
 local openableInStacks = {
