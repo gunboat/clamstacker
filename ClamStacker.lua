@@ -993,7 +993,6 @@ local clamItemIds = Set {
 116431, --Garrison Blueprint: Frostwall Tavern, Level 2
 116432, --Garrison Blueprint: Frostwall Tavern, Level 3
 116761, --Winter Veil Gift
-116762. --Stolen Present
 116764, --Small Pouch of Coins
 116980, --Invader's Forgotten Treasure
 117392, --Loot-filled pumpkin
@@ -1414,6 +1413,8 @@ function ClamStacker:PopulatePopupFrame(numItems, itemlist)
         button:SetWidth(buttonSize)
         button:SetHeight(buttonSize)
         button:SetPoint("TOPLEFT", ClamStacker.popupFrame, 4+(i-1)*buttonSize*deltaX, -12-(i-1)*buttonSize*deltaY)
+
+        button:SetText(tostring(v.itemCount))
 
         button.cooldown:SetID(v.itemId)
         button.cooldown:SetAllPoints()
