@@ -48,6 +48,109 @@ local salvagedGoods = Set {
 118473, --Small Sack of Salvaged Goods
 }
 
+local armorTokens = Set {
+102263, --Timeless Plate Chestpiece
+102264, --Timeless Plate Boots
+102265, --Timeless Plate Gloves
+102266, --Timeless Plate Helm
+102267, --Timeless Plate Leggings
+102268, --Timeless Plate Spaulders
+102269, --Timeless Plate Belt
+102270, --Timeless Mail Chestpiece
+102271, --Timeless Mail Boots
+102272, --Timeless Mail Gloves
+102273, --Timeless Mail Helm
+102274, --Timeless Mail Leggings
+102275, --Timeless Mail Spaulders
+102276, --Timeless Mail Belt
+102277, --Timeless Leather Chestpiece
+102278, --Timeless Leather Boots
+102279, --Timeless Leather Gloves
+102280, --Timeless Leather Helm
+102281, --Timeless Leather Leggings
+102282, --Timeless Leather Spaulders
+102283, --Timeless Leather Belt
+102284, --Timeless Cloth Robes
+102285, --Timeless Cloth Boots
+102286, --Timeless Cloth Gloves
+102287, --Timeless Cloth Helm
+102288, --Timeless Cloth Leggings
+102289, --Timeless Cloth Spaulders
+102290, --Timeless Cloth Belt
+102291, --Timeless Signet
+102318, --Timeless Cloak
+102320, --Timeless Plate Bracers
+102321, --Timeless Cloth Bracers
+102322, --Timeless Leather Bracers
+102323, --Timeless Mail Bracers
+102345, --Timeless Lavalliere
+102347, --Timeless Curio
+114052, --Gleaming Ring
+114053, --Shimmering Gauntlets
+114057, --Munificent Bracers
+114058, --Munificent Robes
+114059, --Munificent Treads
+114060, --Munificent Gauntlets
+114061, --Munificent Hood
+114062, --Munificent Leggings
+114063, --Munificent Spaulders
+114064, --Munificent Girdle
+114065, --Munificent Ring
+114066, --Munificent Choker
+114067, --Munificent Cloak
+114068, --Munificent Trinket
+114069, --Turbulent Bracers
+114070, --Turbulent Robes
+114071, --Turbulent Treads
+114072, --Turbulent Gauntlets
+114073, --Turbulent Hood
+114074, --Turbulent Leggings
+114075, --Turbulent Spaulders
+114076, --Turbulent Girdle
+114077, --Turbulent Ring
+114078, --Turbulent Choker
+114079, --Turbulent Cloak
+114080, --Turbulent Trinket
+114082, --Grandiose Bracers
+114083, --Grandiose Robes
+114084, --Grandiose Treads
+114085, --Grandiose Spaulders
+114086, --Grandiose Choker
+114087, --Grandiose Trinket
+114094, --Tormented Bracers
+114096, --Tormented Treads
+114097, --Tormented Gauntlets
+114098, --Tormented Hood
+114099, --Tormented Leggings
+114100, --Tormented Spaulders
+114101, --Tormented Girdle
+114105, --Tormented Trinket
+114108, --Tormented Armament
+114109, --Munificent Armament
+114110, --Turbulent Armament
+114112, --Grandiose Armament
+119114, --Grandiose Gauntlets
+119116, --Grandiose Hood
+119118, --Grandiose Leggings
+119120, --Grandiose Girdle
+119122, --Grandiose Ring
+119124, --Grandiose Cloak
+--Coming in patch 6.1
+122621, --Shared Turbulent Bracers
+122622, --Shared Turbulent Robes
+122623, --Shared Turbulent Treads
+122624, --Shared Turbulent Gauntlets
+122625, --Shared Turbulent Hood
+122626, --Shared Turbulent Leggings
+122627, --Shared Turbulent Spaulders
+122628, --Shared Turbulent Girdle
+122629, --Shared Turbulent Ring
+122630, --Shared Turbulent Choker
+122631, --Shared Turbulent Cloak
+122632, --Shared Turbulent Trinket
+122633, --Shared Turbulent Armament
+}
+
 local smallDraenorFish = Set {
 111589, --Small Crescent Saberfish
 111650, --Small Jawless Skulker
@@ -182,6 +285,7 @@ local smallLeatherBits = Set {
 local mediumLeatherBits = Set {
 25649,
 33567,
+52977, --Savage Leather Scraps
 72162,
 }
 
@@ -889,15 +993,18 @@ local clamItemIds = Set {
 116431, --Garrison Blueprint: Frostwall Tavern, Level 2
 116432, --Garrison Blueprint: Frostwall Tavern, Level 3
 116761, --Winter Veil Gift
+116762. --Stolen Present
 116764, --Small Pouch of Coins
 116980, --Invader's Forgotten Treasure
 117392, --Loot-filled pumpkin
+117492, --Relic of Rukhmar
 118193, --Mysterious Shining Lockbox
 118215, --Book of Garrison Blueprints
 118473, --Small Sack of Salvaged Goods
 118529, --Cache of Highmaul Treasures
 118530, --Cache of Highmaul Treasures
 118531, --Cache of Highmaul Treasures
+118697, --Big Bag of Pet Supplies
 118759, --Alchemy Experiment
 118924, --Cache of Arms
 118925, --Plundered Booty
@@ -932,6 +1039,24 @@ local clamItemIds = Set {
 120324, --Bursting Stacked Card Deck
 120325, --Overflowing Stacked Card Deck
 122535, --Traveler's Pet Supplies
+
+-- PvP strongboxes
+111598, --Gold Strongbox
+111599, --Silver Strongbox
+111600, --Bronze Strongbox
+116762, --Stolen Present
+118065, --Gleaming Ashmaul Strongbox
+118066, --Ashmaul Strongbox
+118697, --Big Bag of Pet Supplies
+119330, --Steel Strongbox
+120146, --Smuggled Sack of Gold
+120147, --Bloody Gold Purse
+120184, --Ashmaul Strongbox
+120321, --Mystery Bag
+120353, --Steel Strongbox
+120354, --Gold Strongbox
+120355, --Silver Strongbox
+120356, --Bronze Strongbox
 }
 
 local openableInStacks = {
@@ -1144,6 +1269,7 @@ function ClamStacker:BAG_UPDATE_DELAYED()
                     		or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId])
                     		or (inGarrison and ClamStacker.db.profile.salvage and salvagedGoods[itemId])
                     		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and ClamStacker.cache.openableInStacks[itemId] <= itemCount)
+                    		or (armorTokens[itemId] and select(5,GetItemInfo(itemId)) <= UnitLevel('player'))
                     		then
                         self:Debug(itemId.." is a clam")
                         if not itemlist[itemId] then
