@@ -1189,7 +1189,14 @@ function ClamStacker:OnInitialize()
 
     self:RegisterChatCommand("clamstacker", "ChatCommand")
 
-
+    -- preload map to avoid iterating "openableInStacks" all the time
+    ClamStacker.cache.openableInStacks = {}
+    for i,v in ipairs(openableInStacks) do
+    	for ik,iv in pairs(v[1]) do
+    		self:Debug("adding item " .. ik .. " with count " .. v[2])
+    		ClamStacker.cache.openableInStacks[ik] = v[2]
+    	end
+    end
 
     -- Configuration I18N
     tinsert(ClamStacker.OrientationChoices, L["ORIENTATION_VERTICAL"])
@@ -1211,17 +1218,16 @@ function ClamStacker:OnEnable()
     self:Print("v"..version.." loaded")
     self:RegisterEvent("BAG_UPDATE_DELAYED");
     self:RegisterEvent("ZONE_CHANGED")
-
-    -- preload map to avoid iterating "openableInStacks" all the time
-    ClamStacker.cache.openableInStacks = {}
-    for i,v in ipairs(openableInStacks) do
-    	for ik,iv in pairs(v[1]) do
-    		self:Debug("adding item " .. ik .. " with count " .. v[2])
-    		ClamStacker.cache.openableInStacks[ik] = v[2]
-    	end
-    end
+    self:RegisterEvent("PLAYER_REGEN_DISABLED")
 
     self:BAG_UPDATE_DELAYED()
+end
+
+function ClamStacker:PLAYER_REGEN_DISABLED(self)
+    if ClamStacker.popupFrame and ClamStacker.popupFrame:IsShown() then
+        ClamStacker.popupFrame:Hide()
+        ClamStacker.popupFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
+    end
 end
 
 local function PLAYER_REGEN_ENABLED(self)
@@ -1294,8 +1300,8 @@ function ClamStacker:BAG_UPDATE_DELAYED()
         end
     end
 
-    if ClamStacker.popupFrame then
-        ClamStacker.popupFrame:Hide()
+    if ClamStacker.popupFrame and ClamStacker.popupFrame:IsShown() then
+    	ClamStacker.popupFrame:Hide()
     end
 
     -- No clams? We're all done
