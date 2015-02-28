@@ -1039,6 +1039,7 @@ local clamItemIds = Set {
 120324, --Bursting Stacked Card Deck
 120325, --Overflowing Stacked Card Deck
 122535, --Traveler's Pet Supplies
+123975, --Greater Bounty Spoils
 
 -- PvP strongboxes
 111598, --Gold Strongbox
