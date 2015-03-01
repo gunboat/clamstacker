@@ -1066,7 +1066,7 @@ local clamItemIds = Set {
 122221, --Music Roll: Song of Liu Lang
 122222, --Music Roll: Angelic
 122223, --Music Roll: Ghost
-122224. --Music Roll: Mountains
+122224, --Music Roll: Mountains
 122226, --Music Roll: Magic
 122228, --Music Roll: The Black Temple
 122229, --Music Roll: Invincible
