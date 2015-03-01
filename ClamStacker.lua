@@ -1038,6 +1038,46 @@ local clamItemIds = Set {
 120323, --Bulging Stacked Card Deck
 120324, --Bursting Stacked Card Deck
 120325, --Overflowing Stacked Card Deck
+122195, --Music Roll: Legends of Azeroth
+122196, --Music Roll: The Burning Legion
+122197, --Music Roll: Wrath of the Lich King
+122198, --Music Roll: The Shattering
+122199, --Music Roll: Heart of Pandaria
+122200, --Music Roll: A Siege of Worlds
+122201, --Music Roll: Stormwind
+122202, --Music Roll: High Seas
+122203, --Music Roll: Ironforge
+122204, --Music Roll: Cold Mountain
+122205, --Music Roll: Night Song
+122206, --Music Roll: Gnomeregan
+122207, --Music Roll: Tinkertown
+122208, --Music Roll: Exodar
+122209, --Music Roll: Curse of the Worgen
+122210, --Music Roll: Orgrimmar
+122211, --Music Roll: War March
+122212, --Music Roll: Undercity
+122213, --Music Roll: Thunder Bluff
+122214, --Music Roll: Mulgore Plains
+122215, --Music Roll: Zul'Gurub Voodoo
+122216, --Music Roll: The Zandalari
+122217, --Music Roll: Silvermoon
+122218, --Music Roll: Rescue the Warchief
+122219, --Music Roll: Way of the Monk
+122221, --Music Roll: Song of Liu Lang
+122222, --Music Roll: Angelic
+122223, --Music Roll: Ghost
+122224. --Music Roll: Mountains
+122226, --Music Roll: Magic
+122228, --Music Roll: The Black Temple
+122229, --Music Roll: Invincible
+122231, --Music Roll: Karazhan Opera House
+122232, --Music Roll: The Argent Tournament
+122233, --Music Roll: Lament of the Highborne
+122234, --Music Roll: Faerie Dragon
+122236, --Music Roll: Totems of the Grizzlemaw
+122237, --Music Roll: Mountains of Thunder
+122238, --Music Roll: Darkmoon Carousel
+122239, --Music Roll: Shalandis Isle
 122535, --Traveler's Pet Supplies
 122613, --Stash of Dusty Music Rolls
 123857, --Runic Pouch
