@@ -1039,6 +1039,7 @@ local clamItemIds = Set {
 120324, --Bursting Stacked Card Deck
 120325, --Overflowing Stacked Card Deck
 122535, --Traveler's Pet Supplies
+122613, --Stash of Dusty Music Rolls
 123857, --Runic Pouch
 123975, --Greater Bounty Spoils
 
