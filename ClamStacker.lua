@@ -1080,6 +1080,7 @@ local clamItemIds = Set {
 122239, --Music Roll: Shalandis Isle
 122535, --Traveler's Pet Supplies
 122613, --Stash of Dusty Music Rolls
+122718, --Clinking Present
 123857, --Runic Pouch
 123975, --Greater Bounty Spoils
 
