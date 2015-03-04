@@ -969,7 +969,6 @@ local clamItemIds = Set {
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
 114028, --Small Pouch of Coins
-114116, --Bag of Salvaged Goods
 114662, --Tranquil satchel of helpful goods
 114970, --Small Pouch of Coins
 115356, --Draenor Blacksmithing
