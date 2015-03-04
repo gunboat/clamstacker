@@ -1317,7 +1317,7 @@ function ClamStacker:BAG_UPDATE_DELAYED()
                     if clamItemIds[itemId]
                     		or (ClamStacker.db.profile.lockboxes and lockboxItemIds[itemId])
                     		or (inGarrison and ClamStacker.db.profile.salvage and salvagedGoods[itemId])
-                    		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and ClamStacker.cache.openableInStacks[itemId] <= itemCount)
+                    		or (ClamStacker.cache.openableInStacks[itemId] ~= nil and IsUsableItem(itemId))
                     		or (armorTokens[itemId] and select(5,GetItemInfo(itemId)) <= UnitLevel('player'))
                     		then
                         self:Debug(itemId.." is a clam")
