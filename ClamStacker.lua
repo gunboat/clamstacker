@@ -1226,9 +1226,13 @@ function ClamStacker:OnInitialize()
 
     ClamStacker.cache = {}
 
-    LibStub("AceConfig-3.0"):RegisterOptionsTable("ClamStacker", options)
+    local ACFG = LibStub("AceConfig-3.0")
+    ACFG:RegisterOptionsTable("ClamStacker", options)
+    ACFG:RegisterOptionsTable("ClamStacker Profiles", LibStub("AceDBOptions-3.0"):GetOptionsTable(ClamStacker.db))
 
-    ClamStacker.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("ClamStacker", "ClamStacker")
+    local ACD = LibStub("AceConfigDialog-3.0")
+    ClamStacker.optionsFrame = ACD:AddToBlizOptions("ClamStacker", "ClamStacker")
+    ACD:AddToBlizOptions("ClamStacker Profiles", "Profiles", "ClamStacker")
 
     self:RegisterChatCommand("clamstacker", "ChatCommand")
 
@@ -1371,14 +1375,14 @@ function ClamStacker:CreatePopupFrame()
         ClamStacker.popupFrame = CreateFrame("Frame", "ClamStackerPopupFrame", UIParent)
         local f = ClamStacker.popupFrame
         f:ClearAllPoints()
-        if not ClamStacker.db.char.point then
-            f:SetPoint("CENTER", 0, 0)
+        if not ClamStacker.db.profile.point then
+            f:SetPoint("TOPLEFT", 0, 0)
         else
-            f:SetPoint(ClamStacker.db.char.point,
+            f:SetPoint(ClamStacker.db.profile.point,
                 UIParent,
-                ClamStacker.db.char.relativePoint,
-                ClamStacker.db.char.xOfs,
-                ClamStacker.db.char.yOfs)
+                ClamStacker.db.profile.relativePoint,
+                ClamStacker.db.profile.xOfs,
+                ClamStacker.db.profile.yOfs)
         end
         self:Debug("ClamStackerPopupFrame created")
         f:SetFrameStrata("HIGH")
@@ -1393,11 +1397,11 @@ function ClamStacker:CreatePopupFrame()
             self:Debug("relativePoint="..relativePoint)
             self:Debug("xOfs="..xOfs)
             self:Debug("yOfs="..yOfs)
-            ClamStacker.db.char.point = point
-            ClamStacker.db.char.relativeTo = relativeTo
-            ClamStacker.db.char.relativePoint = relativePoint
-            ClamStacker.db.char.xOfs = xOfs
-            ClamStacker.db.char.yOfs = yOfs
+            ClamStacker.db.profile.point = point
+            ClamStacker.db.profile.relativeTo = relativeTo
+            ClamStacker.db.profile.relativePoint = relativePoint
+            ClamStacker.db.profile.xOfs = xOfs
+            ClamStacker.db.profile.yOfs = yOfs
         end)
         f:SetScript("OnEvent", PLAYER_REGEN_ENABLED)
 
