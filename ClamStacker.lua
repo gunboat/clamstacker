@@ -1200,6 +1200,44 @@ local profileOptions = {
 
 ClamStacker.itemButtons = {}
 
+local function table_print (tt, indent, done)
+  done = done or {}
+  indent = indent or 0
+  if type(tt) == "table" then
+    local sb = {}
+    for key, value in pairs (tt) do
+      table.insert(sb, string.rep (" ", indent)) -- indent it
+      if type (value) == "table" and not done [value] then
+        done [value] = true
+        table.insert(sb, "{\n");
+        table.insert(sb, table_print (value, indent + 2, done))
+        table.insert(sb, string.rep (" ", indent)) -- indent it
+        table.insert(sb, "}\n");
+      elseif "number" == type(key) then
+        table.insert(sb, string.format("\"%s\"\n", tostring(value)))
+      else
+        table.insert(sb, string.format(
+            "%s = \"%s\"\n", tostring (key), tostring(value)))
+       end
+    end
+    return table.concat(sb)
+  else
+    return tt .. "\n"
+  end
+end
+
+local function to_string( tbl )
+    if  "nil"       == type( tbl ) then
+        return tostring(nil)
+    elseif  "table" == type( tbl ) then
+        return table_print(tbl)
+    elseif  "string" == type( tbl ) then
+        return tbl
+    else
+        return tostring(tbl)
+    end
+end
+
 function ClamStacker:Debug(...)
     if debugFrame then
         debugFrame:AddMessage(string.join(", ", ...))
@@ -1223,6 +1261,7 @@ function ClamStacker:OnInitialize()
     defaults.profile.orientation = L["ORIENTATION_HORIZONTAL"]
 
     ClamStacker.db = LibStub("AceDB-3.0"):New("ClamStackerDB", defaults, "Default")
+    ClamStacker.db.RegisterCallback(ClamStacker, "OnProfileChanged", "BAG_UPDATE_DELAYED")
 
     ClamStacker.cache = {}
 
@@ -1371,12 +1410,25 @@ function ClamStacker:BAG_UPDATE_DELAYED()
 end
 
 function ClamStacker:CreatePopupFrame()
+	if ClamStacker.popupFrame and ClamStacker.db.profile.point then
+		local f = ClamStacker.popupFrame
+	    f:SetPoint(ClamStacker.db.profile.point,
+	        UIParent,
+	        ClamStacker.db.profile.relativePoint,
+	        ClamStacker.db.profile.xOfs,
+	        ClamStacker.db.profile.yOfs)
+	    self:Debug("restoring frmae to "
+	    	..ClamStacker.db.profile.relativePoint
+	    	..", x="..ClamStacker.db.profile.xOfs
+	    	..", y="..ClamStacker.db.profile.yOfs)
+	end
     if not ClamStacker.popupFrame then
         ClamStacker.popupFrame = CreateFrame("Frame", "ClamStackerPopupFrame", UIParent)
         local f = ClamStacker.popupFrame
         f:ClearAllPoints()
         if not ClamStacker.db.profile.point then
             f:SetPoint("TOPLEFT", 0, 0)
+            self:Debug("putting frame in default position")
         else
             f:SetPoint(ClamStacker.db.profile.point,
                 UIParent,
@@ -1389,12 +1441,14 @@ function ClamStacker:CreatePopupFrame()
         f:SetClampedToScreen(true)
         f:EnableMouse(true)
         f:SetMovable(true)
-        f:SetScript("OnMouseDown", function() f:StartMoving() end)
-        f:SetScript("OnMouseUp", function()
+        f:SetScript("OnDragStart", function() f:StartMoving() end)
+        f:SetScript("OnDragStop", function()
             f:StopMovingOrSizing()
-            local point,relativeTo,relativePoint,xOfs,yOfs = f:GetPoint()
-            self:Debug("point="..point)
-            self:Debug("relativePoint="..relativePoint)
+            self:Debug("#points="..to_string(f:GetNumPoints()))
+            local point,relativeTo,relativePoint,xOfs,yOfs = f:GetPoint(1)
+            self:Debug("point="..to_string(point))
+            self:Debug("relativeTo"..to_string(relativeTo))
+            self:Debug("relativePoint="..to_string(relativePoint))
             self:Debug("xOfs="..xOfs)
             self:Debug("yOfs="..yOfs)
             ClamStacker.db.profile.point = point
