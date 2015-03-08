@@ -1123,6 +1123,20 @@ local options = {
     handler = ClamStacker,
     desc = "Manage clams and other things that can be opened",
     args = {
+    	head0 = {
+    		name = "",
+    		desc = "heaing 0",
+    		type = "header",
+    		order = 1
+    	},
+    	frame_locked = {
+    		name = "Locked?",
+    		desc = "Is frame locked from moving?",
+    		type = "toggle",
+    		set = function ( info, val ) ClamStacker.db.profile.frame_locked = val; ClamStacker:BAG_UPDATE_DELAYED() end,
+    		get = function (info) return ClamStacker.db.profile.frame_locked end,
+    		order = 2.
+    	},
     	head1 = {
     		name = "",
     		desc = "Heading 1",
@@ -1188,6 +1202,7 @@ local defaults = {
         orientation = 1,
         lockboxes = true,
         verbose = false,
+        frame_locked = false,
     }
 }
 
@@ -1409,6 +1424,36 @@ function ClamStacker:BAG_UPDATE_DELAYED()
     end
 end
 
+function ClamStacker:StartMoving()
+	if ClamStacker.db.profile.frame_locked then
+		return
+	end
+
+	ClamStacker.popupFrame:StartMoving()
+end
+
+function ClamStacker:StopMoving()
+	if ClamStacker.db.profile.frame_locked then
+		return
+	end
+
+	local f = ClamStacker.popupFrame
+    f:StopMovingOrSizing()
+    self:Debug("#points="..to_string(f:GetNumPoints()))
+    local point,relativeTo,relativePoint,xOfs,yOfs = f:GetPoint(1)
+    self:Debug("point="..to_string(point))
+    self:Debug("relativeTo"..to_string(relativeTo))
+    self:Debug("relativePoint="..to_string(relativePoint))
+    self:Debug("xOfs="..xOfs)
+    self:Debug("yOfs="..yOfs)
+    ClamStacker.db.profile.point = point
+    ClamStacker.db.profile.relativeTo = relativeTo
+    ClamStacker.db.profile.relativePoint = relativePoint
+    ClamStacker.db.profile.xOfs = xOfs
+    ClamStacker.db.profile.yOfs = yOfs
+end
+
+
 function ClamStacker:CreatePopupFrame()
 	if ClamStacker.popupFrame and ClamStacker.db.profile.point then
 		local f = ClamStacker.popupFrame
@@ -1425,6 +1470,7 @@ function ClamStacker:CreatePopupFrame()
     if not ClamStacker.popupFrame then
         ClamStacker.popupFrame = CreateFrame("Frame", "ClamStackerPopupFrame", UIParent)
         local f = ClamStacker.popupFrame
+        f:RegisterForDrag("LeftButton")
         f:ClearAllPoints()
         if not ClamStacker.db.profile.point then
             f:SetPoint("TOPLEFT", 0, 0)
@@ -1441,22 +1487,8 @@ function ClamStacker:CreatePopupFrame()
         f:SetClampedToScreen(true)
         f:EnableMouse(true)
         f:SetMovable(true)
-        f:SetScript("OnDragStart", function() f:StartMoving() end)
-        f:SetScript("OnDragStop", function()
-            f:StopMovingOrSizing()
-            self:Debug("#points="..to_string(f:GetNumPoints()))
-            local point,relativeTo,relativePoint,xOfs,yOfs = f:GetPoint(1)
-            self:Debug("point="..to_string(point))
-            self:Debug("relativeTo"..to_string(relativeTo))
-            self:Debug("relativePoint="..to_string(relativePoint))
-            self:Debug("xOfs="..xOfs)
-            self:Debug("yOfs="..yOfs)
-            ClamStacker.db.profile.point = point
-            ClamStacker.db.profile.relativeTo = relativeTo
-            ClamStacker.db.profile.relativePoint = relativePoint
-            ClamStacker.db.profile.xOfs = xOfs
-            ClamStacker.db.profile.yOfs = yOfs
-        end)
+        f:SetScript("OnDragStart", function() ClamStacker:StartMoving() end)
+        f:SetScript("OnDragStop", function() ClamStacker:StopMoving() end)
         f:SetScript("OnEvent", PLAYER_REGEN_ENABLED)
 
         f:SetBackdrop{
