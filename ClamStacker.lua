@@ -1539,10 +1539,11 @@ function ClamStacker:PopulatePopupFrame(numItems, itemlist)
         local button = ClamStacker.itemButtons[i]
         if not button then
             self:Debug("creating button #"..i)
-            button = CreateFrame("Button", "ClamStackerItemButton_"..i, ClamStacker.popupFrame, "SecureActionButtonTemplate")
+            button = CreateFrame("Button", "ClamStackerItemButton_"..i, ClamStacker.popupFrame, "SecureActionButtonTemplate,ActionButtonTemplate")
             button:SetMovable(true)
             button.cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
             button.texture = button:CreateTexture(nil, "BACKGROUND")
+            button:RegisterForClicks("AnyUp")
 
 
             ClamStacker.itemButtons[i] = button
@@ -1551,6 +1552,8 @@ function ClamStacker:PopulatePopupFrame(numItems, itemlist)
         button:SetID(v.itemId)
         button:SetAttribute("type1", "item")
         button:SetAttribute("item1", "item:"..v.itemId)
+        button:SetAttribute("type2", "item")
+        button:SetAttribute("item2", "item:"..v.itemId)
         button:SetWidth(buttonSize)
         button:SetHeight(buttonSize)
         button:SetPoint("TOPLEFT", ClamStacker.popupFrame, 4+(i-1)*buttonSize*deltaX, -12-(i-1)*buttonSize*deltaY)
