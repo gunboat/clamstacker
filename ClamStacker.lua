@@ -897,6 +897,7 @@ local clamItemIds = Set {
 105713, --Twisted Treasures of the Vale
 105714, --Coalesced Turmoil
 107694, --Garrison Blueprint: Lunarfall Inn, Level 2
+108738, --Giant Draenor Clam
 109062, --Garrison Blueprint: Mage Tower, Level 2
 109063, --Garrison Blueprint: Mage Tower, Level 3
 109065, --Garrison Blueprint: Lunarfall Inn, Level 3
