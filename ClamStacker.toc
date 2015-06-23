@@ -1,4 +1,4 @@
-## Interface: 60100
+## Interface: 60200
 ## Title: ClamStacker
 ## Notes: Deal with all those stupid clams that keep showing up in your bags
 ## Author: gunboat
