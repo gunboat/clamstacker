@@ -1083,6 +1083,12 @@ local clamItemIds = Set {
 122718, --Clinking Present
 123857, --Runic Pouch
 123975, --Greater Bounty Spoils
+126900, --Ship Blueprint: Destroyer
+127267, --Ship Blueprint: Carrier
+127268, --Ship Blueprint: Transport
+127269, --Ship Blueprint: Battleship
+127270, --Ship Blueprint: Submarine
+128492, --Ship Blueprint: Battleship
 
 -- PvP strongboxes
 111598, --Gold Strongbox
