@@ -1083,11 +1083,25 @@ local clamItemIds = Set {
 122718, --Clinking Present
 123857, --Runic Pouch
 123975, --Greater Bounty Spoils
+124550, --Baleful Bracers
+124551, --Baleful Tunic
+124552, --Baleful Treads
+124553, --Baleful Gauntlets
+124554, --Baleful Hood
+124555, --Baleful Leggins
+124556, --Baleful Spaulders
+124557, --Baleful Girdle
+124558, --Baleful Ring
+124559, --Baleful Choker
+124560, --Baleful Cloak
+124561, --Baleful Trinket
+124562, --Baleful Armament
 126900, --Ship Blueprint: Destroyer
 127267, --Ship Blueprint: Carrier
 127268, --Ship Blueprint: Transport
 127269, --Ship Blueprint: Battleship
 127270, --Ship Blueprint: Submarine
+127751, --Fel-Touched Pet Supplies
 128492, --Ship Blueprint: Battleship
 
 -- PvP strongboxes
