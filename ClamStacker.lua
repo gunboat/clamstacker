@@ -1096,6 +1096,9 @@ local clamItemIds = Set {
 124560, --Baleful Cloak
 124561, --Baleful Trinket
 124562, --Baleful Armament
+122484, --Blackrock Foundry Spoils
+122485, --Blackrock Foundry Spoils (Heroic)
+122486, --Blackrock Foundry Spoils (Mythic)
 126900, --Ship Blueprint: Destroyer
 127267, --Ship Blueprint: Carrier
 127268, --Ship Blueprint: Transport
