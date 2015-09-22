@@ -149,6 +149,45 @@ local armorTokens = Set {
 122631, --Shared Turbulent Cloak
 122632, --Shared Turbulent Trinket
 122633, --Shared Turbulent Armament
+124550, --Baleful Bracers
+124551, --Baleful Tunic
+124552, --Baleful Treads
+124553, --Baleful Gauntlets
+124554, --Baleful Hood
+124555, --Baleful Leggings
+124556, --Baleful Spaulders
+124557, --Baleful Girdle
+124558, --Baleful Ring
+124559, --Baleful Choker
+124560, --Baleful Cloak
+124561, --Baleful Trinket
+124562, --Baleful Armament
+127777, --Baleful Cloth Bracers
+127778, --Baleful Cloth Robe
+127780, --Baleful Cloth Gauntlets
+127781, --Baleful Cloth Hood
+127782, --Baleful Cloth Leggings
+127783, --Baleful Cloth Spaulders
+127790, --Baleful Leather Bracers
+127791, --Baleful Leather Tunic
+127792, --Baleful Leather Treads
+127793, --Baleful Leather Gauntlets
+127794, --Baleful Leather Hood
+127795, --Baleful Leather Leggings
+127803, --Baleful Mail Bracers
+127804, --Baleful Mail Robe
+127805, --Baleful Mail Treads
+127806, --Baleful Mail Gauntlets
+127807, --Baleful Mail Hood
+127808, --Baleful Mail Leggings
+127809, --Baleful Mail Spaulders
+127816, --Baleful Plate Bracers
+127817, --Baleful Plate Robe
+127818, --Baleful Plate Treads
+127819, --Baleful Plate Gauntlets
+127820, --Baleful Plate Hood
+127821, --Baleful Plate Leggings
+127822, --Baleful Plate Spaulders
 }
 
 local smallDraenorFish = Set {
@@ -780,8 +819,8 @@ local clamItemIds = Set {
 89607, --Crate of Leather
 89608, --Crate of Ore
 89609, --Crate of Dust
-89613, --Greater Cache of Treasures
 89610, --Pandaria Herbs
+89613, --Greater Cache of Treasures
 89804, --Cache of Mogu Riches
 89807, --Amber Encased Treasure Pouch
 89808, --Dividends of the Everlasting Spring
@@ -839,12 +878,6 @@ local clamItemIds = Set {
 90839, --Cache of Sha-Touched Gold
 90840, --Marauder's Gleaming Sack of Gold
 91086, --Darkmoon Pet Supplies
-92813, --Greater Cache of Treasures
-93146, --Pandaren Spirit Pet Supplies
-93147, --Pandaren Spirit Pet Supplies
-93148, --Pandaren Spirit Pet Supplies
-93149, --Pandaren Spirit Pet Supplies
-92960, --Silkwoom Cocoon
 92718, --Brawler's Purse
 92788, --Ride Ticket Book
 92789, --Ride Ticket Book
@@ -853,6 +886,12 @@ local clamItemIds = Set {
 92792, --Ride Ticket Book
 92793, --Ride Ticket Book
 92794, --Ride Ticket Book
+92813, --Greater Cache of Treasures
+92960, --Silkwoom Cocoon
+93146, --Pandaren Spirit Pet Supplies
+93147, --Pandaren Spirit Pet Supplies
+93148, --Pandaren Spirit Pet Supplies
+93149, --Pandaren Spirit Pet Supplies
 93724, --Darkmoon Game Prize
 94158, --Big Bag of Zandalari Supplies
 94159, --Small Bag of Zandalari Supplies
@@ -884,6 +923,7 @@ local clamItemIds = Set {
 98133, -- Greater Cache of Treasures
 98134, --Heroic Cache of Treasures
 98546, --Bulging Heroic Cache of Treasures
+98560, --Arcane Trove (rep purchasable)
 103624, --Treasures of the Vale
 104035, --Giant Purse of Timeless Coins
 104260, --Satchel of Cosmic Mysteries
@@ -997,6 +1037,7 @@ local clamItemIds = Set {
 116764, --Small Pouch of Coins
 116980, --Invader's Forgotten Treasure
 117392, --Loot-filled pumpkin
+117394, --Satchel of Chilled Goods
 117492, --Relic of Rukhmar
 118193, --Mysterious Shining Lockbox
 118215, --Book of Garrison Blueprints
@@ -1078,34 +1119,71 @@ local clamItemIds = Set {
 122237, --Music Roll: Mountains of Thunder
 122238, --Music Roll: Darkmoon Carousel
 122239, --Music Roll: Shalandis Isle
+122307, --Rush Order: Barn
+122484, --Blackrock Foundry Spoils
+122485, --Blackrock Foundry Spoils
+122486, --Blackrock Foundry Spoils
+122487, --Rush Order: Gladiator's Sanctum
+122490, --Rush Order: Dwarven Bunker
+122491, --Rush Order: War Mill
+122496, --Rush Order: Garden Shipment
+122497, --Rush Order: Garden Shipment
+122500, --Rush Order: Gnomish Gearworks
+122501, --Rush Order: Goblin Workshop
+122502, --Rush Order: Mine Shipment
+122503, --Rush Order: Mine Shipment
 122535, --Traveler's Pet Supplies
+122576, --Rush Order: Alchemy Lab
+122590, --Rush Order: Enchanter's Study
+122591, --Rush Order: Engineering Works
+122592, --Rush Order: Gem Boutique
+122593, --Rush Order: Scribe's Quarters
+122594, --Rush Order: Tailoring Emporium
+122595, --Rush Order: The Forge
+122596, --Rush Order: The Tannery
+122599, --Tome of Sorcerous Elements
 122613, --Stash of Dusty Music Rolls
 122718, --Clinking Present
 123857, --Runic Pouch
+123858, --Follower Retraining Scroll Case
 123975, --Greater Bounty Spoils
-124550, --Baleful Bracers
-124551, --Baleful Tunic
-124552, --Baleful Treads
-124553, --Baleful Gauntlets
-124554, --Baleful Hood
-124555, --Baleful Leggins
-124556, --Baleful Spaulders
-124557, --Baleful Girdle
-124558, --Baleful Ring
-124559, --Baleful Choker
-124560, --Baleful Cloak
-124561, --Baleful Trinket
-124562, --Baleful Armament
-122484, --Blackrock Foundry Spoils
-122485, --Blackrock Foundry Spoils (Heroic)
-122486, --Blackrock Foundry Spoils (Mythic)
+124670, --Sealed Darkmoon Crate
 126900, --Ship Blueprint: Destroyer
+127141, --Bloated Thresher
+127148, --Silas' Secret Stash
 127267, --Ship Blueprint: Carrier
 127268, --Ship Blueprint: Transport
 127269, --Ship Blueprint: Battleship
 127270, --Ship Blueprint: Submarine
 127751, --Fel-Touched Pet Supplies
+127853, -- Iron Fleet Treasure Chest Normal
+127853, --Iron Fleet Treasure Chest
+127854, -- Iron Fleet Treasure Chest Heroic
+127854, --Iron Fleet Treasure Chest
+127855, -- Iron Fleet Treasure Chest Mythic
+127855, --Iron Fleet Treasure Chest
+127953, --Chest of Hellfire's Conqueror
+127954, --Gauntlets of Hellfire's Conqueror
+127955, --Leggings of Hellfire's Conqueror
+127956, --Helm of Hellfire's Conqueror
+127957, --Shoulders of Hellfire's Conqueror
+127958, --Gauntlets of Hellfire's Vanquisher
+127959, --Helm of Hellfire's Vanquisher
+127960, --Leggings of Hellfire's Vanquisher
+127961, --Shoulders of Hellfire's Vanquisher
+127962, --Chest of Hellfire's Vanquisher
+127963, --Chest of Hellfire's Protector
+127964, --Gauntlets of Hellfire's Protector
+127965, --Leggings of Hellfire's Protector
+127966, --Helm of Hellfire's Protector
+127967, --Shoulders of Hellfire's Protector
+127968, --Badge of Hellfire's Vanquisher
+127969, --Badge of Hellfire's Conqueror
+127970, --Badge of Hellfire's Protector
+128373, --Rush Order: Shipyard
+128391, -- Iron Fleet Treasure Chest LFR
 128492, --Ship Blueprint: Battleship
+128803, --Savage Satchel of Cooperation
 
 -- PvP strongboxes
 111598, --Gold Strongbox
