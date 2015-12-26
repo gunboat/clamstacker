@@ -1183,6 +1183,7 @@ local clamItemIds = Set {
 128373, --Rush Order: Shipyard
 128391, -- Iron Fleet Treasure Chest LFR
 128492, --Ship Blueprint: Battleship
+128652, --Gently Shaken Gift
 128803, --Savage Satchel of Cooperation
 
 -- PvP strongboxes
