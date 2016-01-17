@@ -966,6 +966,7 @@ local clamItemIds = Set {
 111818, --Garrison Blueprint: The Tannery, Level 1
 111921, --Draenor Engineering
 111922, --Draenor Enchanting
+111923, --Draenor Inscription
 111927, --Garrison Blueprint: Fishing Shack, Level 2
 111928, --Garrison Blueprint: Fishing Shack, Level 3
 111929, --Garrison Blueprint: Alchemy Lab, Level 2
