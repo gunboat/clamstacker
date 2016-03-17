@@ -1205,6 +1205,8 @@ local clamItemIds = Set {
 120354, --Gold Strongbox
 120355, --Silver Strongbox
 120356, --Bronze Strongbox
+128215, --Dented Ashmaul Strongbox
+
 }
 
 local openableInStacks = {
