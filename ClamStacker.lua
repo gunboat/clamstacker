@@ -1,6 +1,6 @@
 ClamStacker = LibStub("AceAddon-3.0"):NewAddon("ClamStacker", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("ClamStacker", false)
-local version = "1.6.42"
+local version = "1.6.43"
 
 local debugFrame = tekDebug and tekDebug:GetFrame("ClamStacker")
 
