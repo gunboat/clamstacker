@@ -1011,6 +1011,7 @@ local clamItemIds = Set {
 113258, --Blingtron 5000 Gift Package
 113992, --Scribe's Research Notes
 114028, --Small Pouch of Coins
+114634, --Icy Satchel of Helpful Goods
 114662, --Tranquil satchel of helpful goods
 114970, --Small Pouch of Coins
 115356, --Draenor Blacksmithing
@@ -1181,6 +1182,7 @@ local clamItemIds = Set {
 127968, --Badge of Hellfire's Vanquisher
 127969, --Badge of Hellfire's Conqueror
 127970, --Badge of Hellfire's Protector
+128327, --Small Pouch of Coins  Engineering
 128373, --Rush Order: Shipyard
 128391, -- Iron Fleet Treasure Chest LFR
 128492, --Ship Blueprint: Battleship
