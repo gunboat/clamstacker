@@ -188,6 +188,7 @@ local armorTokens = Set {
 127820, --Baleful Plate Hood
 127821, --Baleful Plate Leggings
 127822, --Baleful Plate Spaulders
+128348, --Baleful Spaulders
 }
 
 local smallDraenorFish = Set {
