@@ -1208,6 +1208,7 @@ local clamItemIds = Set {
 120354, --Gold Strongbox
 120355, --Silver Strongbox
 120356, --Bronze Strongbox
+126909, --Gold Strongbox
 126922, --Ashmaul Strongbox
 126924, --Champion's Strongbox
 128215, --Dented Ashmaul Strongbox
