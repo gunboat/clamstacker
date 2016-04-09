@@ -1159,6 +1159,8 @@ local clamItemIds = Set {
 127269, --Ship Blueprint: Battleship
 127270, --Ship Blueprint: Submarine
 127751, --Fel-Touched Pet Supplies
+127784, --Baleful Cloth Girdle
+127799, --Baleful Pendant
 127823, --Baleful Plate Girdle
 127853, -- Iron Fleet Treasure Chest Normal
 127853, --Iron Fleet Treasure Chest
