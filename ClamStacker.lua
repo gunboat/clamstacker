@@ -1161,6 +1161,7 @@ local clamItemIds = Set {
 127751, --Fel-Touched Pet Supplies
 127784, --Baleful Cloth Girdle
 127799, --Baleful Pendant
+127810, --Baleful Mail Girdle
 127823, --Baleful Plate Girdle
 127853, -- Iron Fleet Treasure Chest Normal
 127853, --Iron Fleet Treasure Chest
