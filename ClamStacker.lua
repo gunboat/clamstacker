@@ -1160,6 +1160,7 @@ local clamItemIds = Set {
 127270, --Ship Blueprint: Submarine
 127751, --Fel-Touched Pet Supplies
 127784, --Baleful Cloth Girdle
+127797, --Baleful Leather Girdle
 127798, --Baleful Ring
 127799, --Baleful Pendant
 127810, --Baleful Mail Girdle
