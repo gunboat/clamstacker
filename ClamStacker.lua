@@ -1163,6 +1163,7 @@ local clamItemIds = Set {
 127797, --Baleful Leather Girdle
 127798, --Baleful Ring
 127799, --Baleful Pendant
+127800, --Baleful Cloak
 127810, --Baleful Mail Girdle
 127823, --Baleful Plate Girdle
 127853, -- Iron Fleet Treasure Chest Normal
