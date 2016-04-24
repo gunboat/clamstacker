@@ -404,6 +404,7 @@ local clamItemIds = Set {
 15699, --Small Brown-Wrapped Package
 15874,
 15876, --Nathanos' Chest
+17305, --Green Ribboned Holiday Gift
 17685,
 17685, --Smokywood Pastures Sampler
 17726,
