@@ -1160,6 +1160,13 @@ local clamItemIds = Set {
 127269, --Ship Blueprint: Battleship
 127270, --Ship Blueprint: Submarine
 127751, --Fel-Touched Pet Supplies
+127777, --Baleful Cloth Bracers
+127778, --Baleful Cloth Robe
+127779, --Baleful Cloth Treads
+127780, --Baleful Cloth Gauntlets
+127781, --Baleful Cloth Hood
+127782, --Baleful Cloth Leggings
+127783, --Baleful Cloth Spaulders
 127784, --Baleful Cloth Girdle
 127797, --Baleful Leather Girdle
 127798, --Baleful Ring
