@@ -1205,6 +1205,8 @@ local clamItemIds = Set {
 128652, --Gently Shaken Gift
 128653, --Winter Veil Gift
 128803, --Savage Satchel of Cooperation
+140997, --Alliance Strongbox
+140998, --Horde Strongbox
 
 -- PvP strongboxes
 111598, --Gold Strongbox
