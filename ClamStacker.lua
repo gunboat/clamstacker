@@ -1168,6 +1168,7 @@ local clamItemIds = Set {
 127782, --Baleful Cloth Leggings
 127783, --Baleful Cloth Spaulders
 127784, --Baleful Cloth Girdle
+127796, --Baleful Leather Spaulders
 127797, --Baleful Leather Girdle
 127798, --Baleful Ring
 127799, --Baleful Pendant
