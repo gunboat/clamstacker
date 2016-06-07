@@ -1083,6 +1083,7 @@ local clamItemIds = Set {
 120323, --Bulging Stacked Card Deck
 120324, --Bursting Stacked Card Deck
 120325, --Overflowing Stacked Card Deck
+122163, --Routed Invader's Crate of Spoils
 122195, --Music Roll: Legends of Azeroth
 122196, --Music Roll: The Burning Legion
 122197, --Music Roll: Wrath of the Lich King
