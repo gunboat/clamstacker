@@ -1014,6 +1014,7 @@ local clamItemIds = Set {
 113992, --Scribe's Research Notes
 114028, --Small Pouch of Coins
 114634, --Icy Satchel of Helpful Goods
+114641, --Icy Satchel of Helpful Goods
 114662, --Tranquil satchel of helpful goods
 114970, --Small Pouch of Coins
 115356, --Draenor Blacksmithing
