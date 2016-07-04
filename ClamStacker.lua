@@ -1024,6 +1024,7 @@ local clamItemIds = Set {
 115981, --Abrogator Stone Cluster
 116062, --Greater Darkmoon Pet Supplies
 116111, --Small Pouch of Coins
+116129, --Dessicated Orc's Coin Pouch
 116185, --Garrison Blueprint: War Mill, Level 2
 116186, --Garrison Blueprint: War Mill, Level 3
 116196, --Garrison Blueprint: Spirit Lodge, Level 2
