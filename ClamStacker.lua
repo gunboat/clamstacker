@@ -1210,6 +1210,7 @@ local clamItemIds = Set {
 128653, --Winter Veil Gift
 128803, --Savage Satchel of Cooperation
 137560, --Dreamweaver Provisions
+137562, --Valarjar Cache
 139048, --Small Legion Chest
 139049, --Large Legion Chest
 139786, --Ancient Mana Crystal
