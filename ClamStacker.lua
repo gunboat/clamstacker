@@ -1211,6 +1211,7 @@ local clamItemIds = Set {
 128803, --Savage Satchel of Cooperation
 139048, --Small Legion Chest
 139049, --Large Legion Chest
+139786, --Ancient Mana Crystal
 140997, --Alliance Strongbox
 140998, --Horde Strongbox
 
