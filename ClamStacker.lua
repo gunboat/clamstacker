@@ -1212,6 +1212,7 @@ local clamItemIds = Set {
 137560, --Dreamweaver Provisions
 137561, --Highmountain Tribute
 137562, --Valarjar Cache
+137564, --Nightfallen Hoard
 139048, --Small Legion Chest
 139049, --Large Legion Chest
 139786, --Ancient Mana Crystal
