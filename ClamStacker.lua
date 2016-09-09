@@ -1215,6 +1215,7 @@ local clamItemIds = Set {
 137564, --Nightfallen Hoard
 139048, --Small Legion Chest
 139049, --Large Legion Chest
+139390, --Artifact Research Notes
 139786, --Ancient Mana Crystal
 139890, --Ancient Mana Gem
 140240, --Enchanted Moonwell Waters
