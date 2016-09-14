@@ -1220,6 +1220,7 @@ local clamItemIds = Set {
 139390, --Artifact Research Notes
 139786, --Ancient Mana Crystal
 139890, --Ancient Mana Gem
+140226, --Mana-Tinged Pack
 140240, --Enchanted Moonwell Waters
 140997, --Alliance Strongbox
 140998, --Horde Strongbox
