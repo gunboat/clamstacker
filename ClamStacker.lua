@@ -1223,6 +1223,7 @@ local clamItemIds = Set {
 140226, --Mana-Tinged Pack
 140239, --Excavated Highborne Artifact
 140240, --Enchanted Moonwell Waters
+140243, --Azurefall Essence
 140997, --Alliance Strongbox
 140998, --Horde Strongbox
 141350, --Kirin Tor Chest
