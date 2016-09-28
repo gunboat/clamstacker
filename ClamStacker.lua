@@ -1209,6 +1209,7 @@ local clamItemIds = Set {
 128652, --Gently Shaken Gift
 128653, --Winter Veil Gift
 128803, --Savage Satchel of Cooperation
+136419, --Excavator's Notebook
 137560, --Dreamweaver Provisions
 137561, --Highmountain Tribute
 137562, --Valarjar Cache
